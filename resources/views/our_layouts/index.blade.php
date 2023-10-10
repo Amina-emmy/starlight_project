@@ -13,7 +13,7 @@
 
 <body>
     @include("our_layouts.flash")
-    @yield('content');
+    @yield('content')
 </body>
 
 </html>

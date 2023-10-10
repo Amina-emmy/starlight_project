@@ -1,5 +1,27 @@
-// Body
-$body-bg: #f8fafc;
+//* ajouter des couleurs bootstrap
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+//^ Mes variables couleurs :
+$red : #e21919;
+$blue : #1431d44f;
+$orange : #db850d;
+$taskDone: #71e263;
+
+//^ Map pour backgound-colors & text-colors
+$custom-colors : (
+    "red" : $red ,
+    "ayoub" : $blue ,
+    "ikram" : $orange ,
+);
+$theme-colors : map-merge($theme-colors , $custom-colors);
+
+//^ Map pour table-colors
+$custom-table-variants: (
+    "taskDone" : $taskDone ,
+);
+$table-variants: map-merge($table-variants, $custom-table-variants);
+
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
