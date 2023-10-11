@@ -1,4 +1,6 @@
-{{-- Welcome Page  to appear --}}
+@extends("our_layouts.index")
+@section('content')
+{{-- Welcome Page =>  login --}}
     <x-guest-layout>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -47,3 +49,4 @@
         </form>
     </x-guest-layout>
     
+@endsection
