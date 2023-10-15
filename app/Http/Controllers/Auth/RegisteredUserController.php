@@ -32,20 +32,24 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'image'=> "required|image|mimes:png,jpg,jpeg,gif,svg,webp|max:2048",
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+        //enregister l'image dans le dossier images_users
+        $request->file("image")->storePublicly('images_users/', 'public');
+        // enregister l'user dans la database
         $user = User::create([
             'name' => $request->name,
+            'image' => $request->file("image")->hashName(),
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);
+        ])->assignRole('jury');
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->back()->with('success','Jury has been added successfully');
     }
 }
