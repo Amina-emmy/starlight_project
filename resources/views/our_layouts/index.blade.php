@@ -19,7 +19,10 @@
         </x-app-layout>
     @endauth
 
+    {{-- les messages d'erreurs --}}
     @include('our_layouts.flash')
+
+    {{-- different contenu selon la page--}}
     @yield('content')
 </body>
 
