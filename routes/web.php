@@ -18,22 +18,34 @@ use Illuminate\Support\Facades\Route;
 
 //* Welcome View => Login page
 Route::get('/', function () {
-    return view('welcome');
+    if (!auth()->user()) {
+        // si l'user n'est pas connecter
+        return view('welcome');
+    } else {
+        return redirect('/dashboard');
+    }
 });
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if (auth()->user()->hasRole('admin')) {
+        return view("backend.pages.adminHome");
+    } elseif (auth()->user()->hasRole('jury')) {
+        return view('frontend.pages.juryHome');
+    } 
+    // return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+//^ ADMIN
 Route::middleware('auth','role:admin')->group(function () {
     Route::get('/admin/home',[AdminController::class,'index'])->name('admin.index');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//^ JURY
 Route::middleware('auth','role:jury')->group(function () {
     Route::get('/jury/home',[JuryController::class,'index'])->name('jury.index');
 });
