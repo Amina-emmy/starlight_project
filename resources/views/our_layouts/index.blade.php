@@ -9,11 +9,17 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
+
 </head>
 
 <body>
-    @include("our_layouts.flash")
+    @auth
+        <x-app-layout>
+            {{-- here the default breeze nav --}}
+        </x-app-layout>
+    @endauth
+
+    @include('our_layouts.flash')
     @yield('content')
 </body>
 

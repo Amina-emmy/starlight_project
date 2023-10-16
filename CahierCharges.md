@@ -46,7 +46,8 @@ donc on a deux *roles* :  <admin>   <jury>
     **face-a-face**
     - remplir <faf_condidats> (32 condidats) selon le resultat de vote par jurys <aud_juryVotes> 
         condidat avec 5 votes ===> automatiquement dans <faf_condidats>
-        condidat avec 4 votes ===> 
+        condidat avec 4 votes ===> repe-charge (afficher tous les condidtas qu'ont 4 votes 
+            admin peut les ajouter manuellement dans <faf_condidats> on click ==> ajour de candidat + incrementer son jury_points par 20 points)
         condidat avec <= 3  votes ===> Eliminer, NE l'ajouter pas au table (reste dans table "aud_condidats")
 
     **ultimes face-a-face**

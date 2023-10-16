@@ -33,7 +33,6 @@ Route::get('/dashboard', function () {
     } elseif (auth()->user()->hasRole('jury')) {
         return view('frontend.pages.juryHome');
     } 
-    // return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
