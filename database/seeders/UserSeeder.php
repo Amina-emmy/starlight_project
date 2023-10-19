@@ -14,10 +14,11 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name'=>'admin',
-            'image'=>'admin_image.png',
-            'email'=>'admin@starlight.ma',
-            'password'=>'admin2m',
+            'name' => 'admin',
+            'image' => 'admin_image.png',
+            'email'=>'admin@gmail.com',
+            // 'email'=>'amina.barghoute2001@gmail.com',
+            'password' => 'admin2m',
         ])->assignRole('admin');
     }
 }

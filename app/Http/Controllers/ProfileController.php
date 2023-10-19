@@ -31,6 +31,19 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+        // update pfp
+        $newImage = $request->file('image');
+        if ($newImage != null) {
+            // dans database
+            $request->user()->image = $newImage->hashName();
+            $request->user()->save();
+            //enregister the new image dans le dossier images_users
+            $newImage->storePublicly('images_users/', 'public');
+
+            // if ($userConnected->image != "admin_image.png") {
+            //     // delete image from storage folder
+            //     Storage::disk("public")->delete('images_users/' . $userConnected->image);
+        }
 
         $request->user()->save();
 

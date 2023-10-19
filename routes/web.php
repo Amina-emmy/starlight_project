@@ -40,9 +40,10 @@ Route::get('/dashboard', function () {
 Route::middleware('auth','role:admin')->group(function () {
     Route::get('/admin/home',[AdminController::class,'index'])->name('admin.index');
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 //^ JURY
 Route::middleware('auth','role:jury')->group(function () {
