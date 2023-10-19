@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -25,14 +27,19 @@ class ProfileController extends Controller
      * Update the user's profile information.
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
+    {   
         $request->user()->fill($request->validated());
-
+        //todo : check email update
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
-        // update pfp
+
+        //todo : update pfp
         $newImage = $request->file('image');
+         // get the the old pfp
+         $user = User::where("id",$request->user()->id)->first();
+         $oldpfp=$user->image;
+
         if ($newImage != null) {
             // dans database
             $request->user()->image = $newImage->hashName();
@@ -40,9 +47,10 @@ class ProfileController extends Controller
             //enregister the new image dans le dossier images_users
             $newImage->storePublicly('images_users/', 'public');
 
-            // if ($userConnected->image != "admin_image.png") {
-            //     // delete image from storage folder
-            //     Storage::disk("public")->delete('images_users/' . $userConnected->image);
+            if ($oldpfp != "admin_image.png") { 
+                // delete image from le dossier images_users if it is different from the one in the seeder
+                Storage::disk("public")->delete('images_users/'. $oldpfp);
+            }
         }
 
         $request->user()->save();
