@@ -1,3 +1,4 @@
+#### !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! A LOT OF THINGS HAVE CHANGED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # Intro : 
 L'objectif de ce cahier des charges est de définir les exigences fonctionnelles pour le developpement d'une application web qui permettra de gerer la deroulement du tvshow Starlight. 
 
