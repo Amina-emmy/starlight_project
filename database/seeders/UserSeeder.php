@@ -13,12 +13,38 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        //^ creer compte d'admin
         User::create([
             'name' => 'admin',
             'image' => 'admin_image.png',
-            'email'=>'admin@gmail.com',
-            // 'email'=>'amina.barghoute2001@gmail.com',
-            'password' => 'admin2m',
+            'email' => 'admin@starlight.ma',
+            'password' => bcrypt('admin2m'),
         ])->assignRole('admin');
+
+        //^ creer compte des 5 jurys
+        $jurycount = 5; 
+
+        for ($i = 1; $i <= $jurycount; $i++) {
+            User::create([
+                'name' => 'jury ' . $i,
+                'image' => 'jury_avatar.png',
+                'email' => 'jury' . $i . '@starlight.ma',
+                'password' => bcrypt('jury2m'), // Change the password as needed
+            ])->assignRole('jury');
+        }
+
+        //^ creer compte des 100 membre de public
+        $publicCount = 100; 
+
+        for ($i = 1; $i <= $publicCount; $i++) {
+            //les membres de public peut se connecter using email & password  
+            User::create([
+                'name' => 'public ' . $i,
+                'image' => 'public_avatar.png',
+                'email' => 'public' . $i . '@starlight.ma',
+                'password' => bcrypt('public2m'), // Change the password as needed
+            ])->assignRole('public');
+        }
+
     }
 }
