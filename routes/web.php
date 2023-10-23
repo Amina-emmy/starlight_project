@@ -31,19 +31,19 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $jurys = User::role('jury')->get(); // get from the database all the jurys
     $publics = User::role('public')->get(); // get from the database all the public
-
+    
     if (auth()->user()->hasRole('admin')) {
-        return view("backend.pages.adminHome",compact('jurys','publics'));
+        return view("backend.pages.adminHome", compact('jurys', 'publics'));
     } elseif (auth()->user()->hasRole('jury')) {
         return view('frontend.pages.juryHome');
-    } 
+    }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 //^ ADMIN
-Route::middleware('auth','role:admin')->group(function () {
+Route::middleware('auth', 'role:admin')->group(function () {
     //~ VIEWS
-    Route::get('/admin/home',[AdminController::class,'index'])->name('admin.index');
+    // Route::get('/admin/home',[AdminController::class,'index'])->name('admin.index');
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -52,8 +52,9 @@ Route::middleware('auth','role:admin')->group(function () {
 
 
 //^ JURY
-Route::middleware('auth','role:jury')->group(function () {
-    Route::get('/jury/home',[JuryController::class,'index'])->name('jury.index');
+Route::middleware('auth', 'role:jury')->group(function () {
+    //~ VIEWS
+    // Route::get('/jury/home',[JuryController::class,'index'])->name('jury.index');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
