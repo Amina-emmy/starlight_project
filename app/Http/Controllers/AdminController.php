@@ -9,4 +9,7 @@ class AdminController extends Controller
     public function index(){
         return view("backend.pages.adminHome");
     }
+
+    //^ Update users infos : jurys
+
 }

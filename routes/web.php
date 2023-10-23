@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JuryController;
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +29,11 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
+    $jurys = User::role('jury')->get(); // get from the database all the jurys
+    $publics = User::role('public')->get(); // get from the database all the public
+
     if (auth()->user()->hasRole('admin')) {
-        return view("backend.pages.adminHome");
+        return view("backend.pages.adminHome",compact('jurys','publics'));
     } elseif (auth()->user()->hasRole('jury')) {
         return view('frontend.pages.juryHome');
     } 
@@ -38,8 +42,10 @@ Route::get('/dashboard', function () {
 
 //^ ADMIN
 Route::middleware('auth','role:admin')->group(function () {
+    //~ VIEWS
     Route::get('/admin/home',[AdminController::class,'index'])->name('admin.index');
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
