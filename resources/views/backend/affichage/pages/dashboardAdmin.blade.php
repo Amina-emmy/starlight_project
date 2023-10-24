@@ -1,4 +1,4 @@
-@include('our_layouts.index_admin')
+@include('layouts.index_admin')
 
 <div class="main-content">
     <div class="contenir">

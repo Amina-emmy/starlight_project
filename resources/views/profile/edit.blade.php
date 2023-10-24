@@ -1,4 +1,4 @@
-@include('our_layouts.index_admin')
+@include('layouts.index_admin')
 <div class="main-content">
     <div class="py-2 d-flex gap-5 justify-content-center">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
