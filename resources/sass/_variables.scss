@@ -11,8 +11,8 @@ $taskDone: #71e263;
 //^ Map pour backgound-colors & text-colors
 $custom-colors : (
     "red" : $red ,
-    "ayoub" : $blue ,
-    "ikram" : $orange ,
+    "blue" : $blue ,
+    "orange" : $orange ,
 );
 $theme-colors : map-merge($theme-colors , $custom-colors);
 

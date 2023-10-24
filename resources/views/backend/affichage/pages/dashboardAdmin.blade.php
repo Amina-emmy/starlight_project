@@ -1,0 +1,68 @@
+@include('our_layouts.index_admin')
+
+<div class="main-content">
+    <div class="contenir">
+            <div class="header-title">
+            <h4>Dashboard</h4>
+        </div>
+
+        <div class="user-info">
+            <div class="img">
+                {{-- <img src={{asset("storage/img/test.jpg")}} alt="" srcset=""> --}}
+            </div>
+            <p>test test</p>
+        </div>
+    </div>
+
+
+{{-- ADMIN --}}
+    {{-- cartes pour les cruds --}}
+    <h1>Administration de données</h1>
+
+<div class="cartes_crud">
+    <div class="carte1">
+
+        <i class="fa-solid fa-street-view"></i> 
+        <a href="#">
+            <h5>Audition</h5>
+        </a>
+    </div>
+
+
+    <div class="carte2">
+
+        <i class="fa-solid fa-user-group"></i>
+        <a href="#">
+            <h5>Face à Face</h5>
+        </a>
+    </div>
+
+    <div class="carte3">
+
+        <i class="fa-solid fa-shield"></i>
+        <a href="#">
+            <h5>UltimeFace à Face</h5>
+        </a>
+    </div>
+
+
+    <div class="carte4">
+
+        <i class="fa-solid fa-shield-halved"></i>
+        <a href="#">
+            <h5>Demi Finale</h5>
+        </a>
+    </div>
+
+    <div class="carte5">
+
+        <i class="fa-solid fa-trophy"></i>
+        <a href="#">
+            <h5>Finale</h5>
+        </a>
+    </div>
+
+
+</div>
+ 
+</div>

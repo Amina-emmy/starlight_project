@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index(){
-        return view("backend.pages.adminHome");
+        return view("backend.affichage.pages.dashboardAdmin");
     }
 
     //^ Update users infos : jurys

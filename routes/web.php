@@ -31,9 +31,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $jurys = User::role('jury')->get(); // get from the database all the jurys
     $publics = User::role('public')->get(); // get from the database all the public
-    
+
     if (auth()->user()->hasRole('admin')) {
-        return view("backend.pages.adminHome", compact('jurys', 'publics'));
+        // return view("backend.pages.adminHome", compact('jurys', 'publics'));
+        return view("backend.affichage.pages.dashboardAdmin");
     } elseif (auth()->user()->hasRole('jury')) {
         return view('frontend.pages.juryHome');
     }
@@ -43,7 +44,7 @@ Route::get('/dashboard', function () {
 //^ ADMIN
 Route::middleware('auth', 'role:admin')->group(function () {
     //~ VIEWS
-    // Route::get('/admin/home',[AdminController::class,'index'])->name('admin.index');
+    Route::get('/admin/home',[AdminController::class,'index'])->name('admin.index');
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
