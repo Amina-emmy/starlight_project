@@ -1,0 +1,619 @@
+// ? Sidebar normale
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    .dashboard {
+        display: flex;
+        background-image: url('/storage/logo/bg_page.jpg');
+        background-size: cover; // Facultatif, pour redimensionner l'image de fond.
+        min-height: auto;
+
+    }
+
+    .sidebar {
+        position: sticky;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 95px;
+        min-height: 100vh;
+        padding: 0 1.7rem;
+        overflow: hidden;
+        transition: all 0.5 linear;
+        background-color: white;
+        background-color: #28405b;
+        background-image: url('/storage/logo/bg_page.jpg');
+        background-size: cover; // Facultatif, pour redimensionner l'image de fond.
+
+        .logo {
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .glow-image {
+                width: 90%;
+                /* Adjust the size of the image as needed */
+                opacity: 0;
+                /* Logo initialement invisible */
+                transition: opacity 0.3s;
+            }
+        }
+
+        &:hover {
+            width: 240px;
+            transition: 0.3s;
+
+            .logo .glow-image {
+                opacity: 1;
+            }
+        }
+
+        .menu {
+            height: 88%;
+            position: relative;
+            list-style: none;
+            padding: 0;
+
+            li {
+                padding: 8px 10px;
+                margin: 8px 0;
+                border-radius: 8px;
+                transition: all 0s ease-in-out;
+
+                &:hover {
+                    background-image: url('/storage/logo/bg_page.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    animation: moveStars 5s linear infinite; // Réglez la durée et le comportement d'animation ici
+
+                    @keyframes moveStars {
+                        0% {
+                            background-position: 0 0; // Démarrez l'animation avec la position d'origine
+                        }
+
+                        100% {
+                            background-position: 100% 100%; // Déplacez l'image de fond pour créer une animation
+                        }
+                    }
+
+                    span {
+                        color: white;
+                    }
+
+                    i {
+                        color: white;
+
+                    }
+                }
+
+                a {
+
+                    color: white;
+                    text-decoration: none;
+                    display: flex;
+                    gap: 20px;
+                    align-items: center;
+
+
+                    span {
+                        overflow: hidden;
+                    }
+
+                    i {
+                        font-size: 1.1rem;
+                    }
+                }
+
+
+            }
+
+            .test {
+                padding: 3px 10px;
+                padding-left: 69px;
+                margin: 8px 0;
+                border-radius: 8px;
+                transition: all 0.5s ease-in-out;
+                font-size: 14.4px;
+                font-style: oblique;
+                text-align: left;
+                width: 180px;
+
+                &:hover {
+                    background-image: url('/storage/logo/bg_page.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    animation: moveStars 5s linear infinite; // Réglez la durée et le comportement d'animation ici
+
+                    @keyframes moveStars {
+                        0% {
+                            background-position: 0 0; // Démarrez l'animation avec la position d'origine
+                        }
+
+                        100% {
+                            background-position: 100% 100%; // Déplacez l'image de fond pour créer une animation
+                        }
+                    }
+
+                    span {
+                        color: white;
+                    }
+
+                    i {
+                        color: white;
+                    }
+
+                    .fa-shield {
+                        color: rgba(255, 255, 255, 0.343);
+                    }
+
+                }
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    width: 200px;
+
+                    span {
+                        overflow: hidden;
+                    }
+                }
+
+                .fa-shield {
+                    color: rgba(255, 255, 255, 0.343);
+                }
+            }
+
+
+            .active {
+                background-image: url('/storage/logo/bg_page.jpg');
+                background-size: cover;
+                background-position: center;
+
+                span {
+                    color: white;
+                }
+
+                i {
+                    color: white;
+                }
+            }
+
+
+
+            .settings {
+                position: absolute;
+                left: 0;
+                bottom: 40px;
+                width: 100%;
+            }
+
+            .logout {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+            }
+
+        }
+    }
+
+    .test_card {
+        flex: 1;
+        display: flex;
+        width: 100%;
+        //    flex-wrap: wrap;
+        // margin: 100px 20px 20px -20px;
+        position: relative;
+        margin-top: 20px;
+        gap: 20px;
+        color: white;
+
+        .div1 {
+            width: 25%;
+            height: 13vh;
+            background-color: brown;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px 0 20px;
+            background-color: rgba(142, 40, 40, 0.5);
+            transition: transform 0.5s;
+
+            /* Durée de l'animation (0.5 seconde dans cet exemple) */
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 40px;
+            }
+        }
+
+        .div2 {
+            width: 25%;
+            height: 10vh;
+            background-color: rgba(55, 30, 156, 0.5);
+            padding: 0 20px 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 13vh;
+            transition: transform 0.5s;
+            /* Durée de l'animation (0.5 seconde dans cet exemple) */
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 40px;
+            }
+        }
+
+        .div3 {
+            width: 25%;
+            height: 10vh;
+            background-color: rgba(33, 125, 38, 0.5);
+            padding: 0 20px 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 13vh;
+            transition: transform 0.5s;
+            /* Durée de l'animation (0.5 seconde dans cet exemple) */
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 40px;
+            }
+        }
+
+        .div4 {
+            width: 25%;
+            height: 10vh;
+            background-color: rgba(169, 48, 126, 0.5);
+            padding: 0 20px 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 13vh;
+            transition: transform 0.5s;
+            /* Durée de l'animation (0.5 seconde dans cet exemple) */
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 40px;
+            }
+        }
+
+
+    }
+
+}
+
+// & Sidebar pour tout ce qui est plus 1440px
+@media only screen and (min-width: 1436px) and (max-width:1999px) {
+    .dashboard {
+        .sidebar {
+            width: 120px;
+            min-height: 100vh;
+            padding: 0px 1.3rem;
+
+            .logo {
+                width: 100%;
+                height: 10vh;
+
+                .glow-image {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &:hover {
+                width: 395px;
+                transition: 0.3s;
+            }
+
+            .menu {
+                li {
+                    padding: 10px 13px;
+                    margin: 19px 0;
+
+                    a {
+                        font-size: 27px;
+
+                        i {
+                            font-size: 2.7rem;
+                        }
+                    }
+
+                }
+
+                .test {
+                    padding: 3px 10px;
+                    padding-left: 95px;
+                    margin: 8px 0;
+                    width: 265px;
+
+                    a {
+                        width: 250px;
+                        font-size: 26px;
+                    }
+                }
+
+                .settings {
+                    position: absolute;
+                    left: 0;
+                    bottom: 80px;
+                    width: 100%;
+                }
+
+            }
+        }
+    }
+
+    .test_card {
+
+        margin-top: 40px;
+        gap: 20px;
+
+        .div1 {
+            width: 27%;
+            height: 13vh;
+
+            .nombre {
+                font-size: 29px;
+
+                h4 {
+                    font-size: 26px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 55px;
+            }
+        }
+
+        .div2 {
+            width: 27%;
+            height: 13vh;
+
+            .nombre {
+                font-size: 29px;
+
+                h4 {
+                    font-size: 25px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 55px;
+            }
+        }
+
+        .div3 {
+            width: 27%;
+            height: 13vh;
+
+            .nombre {
+                font-size: 29px;
+
+                h4 {
+                    font-size: 26px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 55px;
+            }
+        }
+
+        .div4 {
+            width: 27%;
+            height: 13vh;
+
+            .nombre {
+                font-size: 29px;
+
+                h4 {
+                    font-size: 25px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 55px;
+            }
+        }
+
+
+    }
+}
+
+// * Sidebar pour 4K
+@media only screen and (min-width: 2000px) {
+    .dashboard {
+        .sidebar {
+            width: 120px;
+            min-height: 100vh;
+            padding: 0px 1.3rem;
+
+            .logo {
+                width: 100%;
+                height: 10vh;
+
+                .glow-image {
+                    width: 100%;
+                    height: auto;
+
+                }
+            }
+
+            &:hover {
+                width: 500px;
+            }
+
+            .menu {
+                li {
+                    padding: 10px 13px;
+                    margin: 40px 0;
+                    border-radius: 8px;
+
+                    a {
+                        font-size: 40px;
+
+                        i {
+                            font-size: 3.7rem;
+                        }
+                    }
+                }
+
+                .test {
+                    padding: 3px 10px;
+                    padding-left: 95px;
+                    margin: 8px 0;
+                    width: 365px;
+
+                    a {
+                        width: 250px;
+                        font-size: 40px;
+                    }
+
+                }
+
+                .settings {
+                    position: absolute;
+                    left: 0;
+                    bottom: 105px;
+                    width: 100%;
+                }
+
+            }
+        }
+    }
+
+    .test_card {
+
+        margin-top: 40px;
+        gap: 20px;
+
+        .div1 {
+            width: 27%;
+            height: 13vh;
+
+            .nombre {
+                font-size: 45px;
+
+                h4 {
+                    font-size: 45px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 70px;
+            }
+        }
+
+        .div2 {
+            width: 27%;
+            height: 13vh;
+
+            .nombre {
+                font-size: 45px;
+
+                h4 {
+                    font-size: 45px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 70px;
+            }
+        }
+
+        .div3 {
+            width: 27%;
+            height: 13vh;
+
+            .nombre {
+                font-size: 45px;
+
+                h4 {
+                    font-size: 45px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 70px;
+            }
+        }
+
+        .div4 {
+            width: 27%;
+            height: 13vh;
+
+            .nombre {
+                font-size: 45px;
+
+                h4 {
+                    font-size: 45px;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            .icone {
+                font-size: 70px;
+            }
+        }
+
+
+    }
+}

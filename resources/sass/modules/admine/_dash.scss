@@ -1,85 +1,92 @@
 .main-content {
-    margin: 20px 20px;
-    border-radius: 6px;
-    padding-left: 22px;
-    padding-right: 22px;
-    height: 9vh;
-    position: relative;
-    overflow-y:scroll ;
+  margin: 20px 20px;
+  border-radius: 6px;
+  padding-left: 22px;
+  padding-right: 22px;
+  height: 9vh;
+  position: relative;
+  overflow-y: scroll;
+  width: 100%;
+  height: 95vh;
+
+  h1 {
+    color: white;
+    // font-style: italic;
+    font-weight: 100;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .contenir {
+    background-color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+    flex: 1;
+    display: flex;
     width: 100%;
-    height: 95vh;
-    h1{
-      color: white;
-      // font-style: italic;
-      font-weight: 100;
-      margin-top: 20px;
-      text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 20px;
+    color: rgb(42, 42, 112);
+    border-radius: 5px;
+    height: 8vh;
+
+    .prime {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70%;
+      gap: 60px;
+
+      // background-color: aqua;
+      li {
+        height: 100%;
+        margin-top: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: rgb(18, 18, 89);
+        list-style: square inside;
+        /* Changer le type de puce et la position */
+
+      }
     }
-    .contenir {
-        background-color: white;
-        padding-right: 20px;
-        padding-left: 20px;
-        flex: 1;
+
+    .user-info {
+      width: 10vw;
+      height: 100%;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 15px;
+      flex: 1;
+
+      .img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        // border: 1px solid red;
         display: flex;
-        width: 100%;
         justify-content: center;
         align-items: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 50%;
+        }
+      }
+
+      p {
         position: relative;
-        gap: 20px;
-        color: rgb(42, 42, 112);
-        border-radius: 5px;
-        height: 8vh;
-        .prime{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 70%;
-          gap: 60px;
-          // background-color: aqua;
-          li{
-            height: 100%;
-            margin-top: 20px;
-          }
-          a{
-            text-decoration: none;
-            color: rgb(18, 18, 89);
-            list-style: square inside; /* Changer le type de puce et la position */
-
-            }
-        }
-        .user-info {
-            width: 10vw;
-            height: 100%;
-            display: flex;
-            justify-content: end;
-            align-items: center;
-            gap: 15px;
-            flex: 1;
-            .img {
-                width: 45px;
-                height: 45px;
-                border-radius: 50px;
-                // border: 1px solid red;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 50px;
-
-                }
-            }
-
-            p {
-                position: relative;
-                top: 10px;
-            }
-        }
+        top: 10px;
+      }
     }
+  }
 
-    .cartes_crud{
+  .cartes_crud {
     position: relative;
     margin-top: 40px;
     display: flex;
@@ -89,393 +96,498 @@
     flex-wrap: wrap;
     gap: 30px;
 
-    .carte1{
-        width: 300px;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-        align-items: center;
-        height: 80px;
+    .carte1 {
+      width: 300px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      transition: 1s;
+      background-color: rgba(0, 255, 255, 0.186);
+      box-shadow: rgba(228, 225, 236, 0.135) 0px 30px 60px -12px inset, rgba(233, 232, 236, 0.289) 0px 18px 36px -18px inset;
+
+      &:hover {
+        opacity: 0.9;
+        transform: scale(1.1);
         transition: 1s;
-        background-color: rgba(0, 255, 255, 0.186);
-        box-shadow: rgba(228, 225, 236, 0.135) 0px 30px 60px -12px inset, rgba(233, 232, 236, 0.289) 0px 18px 36px -18px inset;
+      }
 
-          &:hover{
-            opacity: 0.9;
-            transform: scale(1.1);
-            transition: 1s;
-          }
+      i {
+        font-size: 20px;
+        color: white;
+        font-size: 38px;
 
-          i{
-            font-size: 20px;
-            color: white;
-            font-size: 38px;
+      }
 
-          }
-          a{
-            text-decoration: none;
-            color: white;
+      a {
+        text-decoration: none;
+        color: white;
 
-            h5{
-                color: white;
-                font-size: 24px;
+        h5 {
+          color: white;
+          font-size: 24px;
 
-            }
-          }
+        }
+      }
     }
 
-    .carte2{
-        width: 300px;
-        border-radius: 5px;
-        animation: moveStars 5s linear infinite; // Réglez la durée et le comportement d'animation ici
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-        align-items: center;
-        height: 80px;
+    .carte2 {
+      width: 300px;
+      border-radius: 5px;
+      animation: moveStars 5s linear infinite; // Réglez la durée et le comportement d'animation ici
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      transition: 1s;
+      background-color: rgba(165, 42, 42, 0.295);
+
+      &:hover {
+        opacity: 0.9;
         transition: 1s;
-        background-color: rgba(165, 42, 42, 0.295);
-          &:hover{
-            opacity: 0.9;
-            transition: 1s;
-            transform: scale(1.1);
-          }
+        transform: scale(1.1);
+      }
 
-          i{
-            font-size: 20px;
-            color: white;
-            font-size: 32px;
+      i {
+        font-size: 20px;
+        color: white;
+        font-size: 32px;
 
-          }
-          a{
-            text-decoration: none;
-            color: white;
+      }
 
-            h5{
-                color: white;
-                font-size: 24px;
+      a {
+        text-decoration: none;
+        color: white;
 
-            }
-          }
+        h5 {
+          color: white;
+          font-size: 24px;
+
+        }
+      }
     }
 
-    .carte3{
-        width: 300px;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-        align-items: center;
-        height: 80px;
+    .carte3 {
+      width: 300px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      transition: 2s;
+      background-color: rgba(128, 255, 0, 0.245);
+
+      &:hover {
+        opacity: 0.9;
         transition: 2s;
-        background-color: rgba(128, 255, 0, 0.245);
-          &:hover{
-            opacity: 0.9;
-            transition: 2s;
-            transform: scale(1.1);
-          }
+        transform: scale(1.1);
+      }
 
-          i{
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.412);
-            font-size: 32px;
+      i {
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.412);
+        font-size: 32px;
 
-          }
-          a{
-            text-decoration: none;
-            color: white;
+      }
 
-            h5{
-                color: white;
-                font-size: 24px;
+      a {
+        text-decoration: none;
+        color: white;
 
-            }
-          }
+        h5 {
+          color: white;
+          font-size: 24px;
+
+        }
+      }
     }
 
-    .carte4{
-        width: 300px;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-        align-items: center;
-        height: 80px;
+    .carte4 {
+      width: 300px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      transition: 2s;
+      background-color: rgba(210, 105, 30, 0.314);
+
+      &:hover {
+        opacity: 0.9;
         transition: 2s;
-        background-color: rgba(210, 105, 30, 0.314);
+        transform: scale(1.1);
+      }
 
-          &:hover{
-            opacity: 0.9;
-            transition: 2s;
-            transform: scale(1.1);
-          }
+      i {
+        font-size: 20px;
+        color: white;
+        font-size: 32px;
 
-          i{
-            font-size: 20px;
-            color: white;
-            font-size: 32px;
+      }
 
-          }
-          a{
-            text-decoration: none;
-            color: white;
+      a {
+        text-decoration: none;
+        color: white;
 
-            h5{
-                color: white;
-                font-size: 24px;
+        h5 {
+          color: white;
+          font-size: 24px;
 
-            }
-          }
+        }
+      }
     }
 
-    .carte5{
-        width: 300px;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-around;
-        align-items: center;
-        height: 80px;
+    .carte5 {
+      width: 300px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      transition: 2s;
+      background-color: rgba(255, 20, 145, 0.266);
+
+      &:hover {
+        opacity: 0.9;
         transition: 2s;
-        background-color: rgba(255, 20, 145, 0.266);
+        transform: scale(1.1);
+      }
 
-          &:hover{
-            opacity: 0.9;
-            transition: 2s;
-            transform: scale(1.1);
-          }
+      i {
+        font-size: 20px;
+        color: white;
+        font-size: 32px;
 
-          i{
-            font-size: 20px;
-            color: white;
-            font-size: 32px;
+      }
 
-          }
-          a{
-            text-decoration: none;
-            color: white;
+      a {
+        text-decoration: none;
+        color: white;
 
-            h5{
-                color: white;
-                font-size: 24px;
+        h5 {
+          color: white;
+          font-size: 24px;
 
-            }
-          }
+        }
+      }
     }
-}
+
+    .carte6 {
+      width: 300px;
+      border-radius: 5px;
+      animation: moveStars 5s linear infinite; // Réglez la durée et le comportement d'animation ici
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      height: 80px;
+      transition: 1s;
+      background-color: rgba(108, 15, 139, 0.295);
+
+      &:hover {
+        opacity: 0.9;
+        transition: 1s;
+        transform: scale(1.1);
+      }
+
+      i {
+        font-size: 20px;
+        color: white;
+        font-size: 32px;
+
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+
+        h5 {
+          color: white;
+          font-size: 24px;
+
+        }
+      }
+    }
+  }
 }
 
 
 // & Sidebar pour tout ce qui est plus 1440px
-@media only screen and (min-width: 1436px) and (max-width:1999px)
-{
-.main-content{
-    font-size:28px ;
+@media only screen and (min-width: 1436px) and (max-width:1999px) {
+  .main-content {
+    font-size: 28px;
 
-    .contenir{
-        height: 8vh;
-        h4{
-            font-size: 26px;
+    .contenir {
+      height: 8vh;
+
+      h4 {
+        font-size: 26px;
+      }
+
+      .user-info {
+
+        .img {
+          width: 75px;
+          height: 75px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
-        .user-info {
 
-            .img {
-                width: 75px;
-                height: 75px;
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-
-            p {
-                position: relative;
-                top: 10px;
-                font-size:26px;
-            }
+        p {
+          position: relative;
+          top: 10px;
+          font-size: 26px;
         }
-        
+      }
+
     }
 
-    .cartes_crud{
-        margin-top: 50px;
-        .carte1{
-         width: 390px;
+    .cartes_crud {
+      margin-top: 50px;
+
+      .carte1 {
+        width: 390px;
         height: 110px;
-        i{
-            font-size: 52px;
-          }
-          a{
-            h5{
-                color: white;
-                font-size: 31px;
-            }
-          }
+
+        i {
+          font-size: 52px;
         }
 
-        .carte2{
-            width: 390px;
-           height: 110px;
-           i{
-               font-size: 45px;
-             }
-             a{
-               h5{
-                   color: white;
-                   font-size: 31px;
-               }
-             }
-           }
+        a {
+          h5 {
+            color: white;
+            font-size: 31px;
+          }
+        }
+      }
 
-           .carte3{
-            width: 390px;
-           height: 110px;
-           i{
-               font-size: 45px;
-             }
-             a{
-               h5{
-                   color: white;
-                   font-size: 31px;
-               }
-             }
-           }
+      .carte2 {
+        width: 390px;
+        height: 110px;
 
-           .carte4{
-            width: 390px;
-           height: 110px;
-           i{
-               font-size: 45px;
-             }
-             a{
-               h5{
-                   color: white;
-                   font-size: 31px;
-               }
-             }
-           }
+        i {
+          font-size: 45px;
+        }
 
-           .carte5{
-            width: 390px;
-           height: 110px;
-           i{
-               font-size: 45px;
-             }
-             a{
-               h5{
-                   color: white;
-                   font-size: 31px;
-               }
-             }
-           }
+        a {
+          h5 {
+            color: white;
+            font-size: 31px;
+          }
+        }
+      }
+
+      .carte3 {
+        width: 390px;
+        height: 110px;
+
+        i {
+          font-size: 45px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 31px;
+          }
+        }
+      }
+
+      .carte4 {
+        width: 390px;
+        height: 110px;
+
+        i {
+          font-size: 45px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 31px;
+          }
+        }
+      }
+
+      .carte5 {
+        width: 390px;
+        height: 110px;
+
+        i {
+          font-size: 45px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 31px;
+          }
+        }
+      }
+
+      .carte6 {
+        width: 390px;
+        height: 110px;
+
+        i {
+          font-size: 45px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 31px;
+          }
+        }
+      }
     }
-}
+
+
+  }
 }
 
 // * Sidebar pour 4K
-@media only screen and (min-width: 2000px)
-{
+@media only screen and (min-width: 2000px) {
 
-    .main-content{
-        font-size:45px ;
-        // background-color: aqua;
-        .contenir{
-            height: 8vh;
-            h4{
-                font-size: 40px;
-            }
-            .user-info {
-    
-                .img {
-                    width: 100px;
-                    height: 100px;
-                    img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-    
-                p {
-                    position: relative;
-                    top: 10px;
-                    font-size:37.5px;
-                }
-            }
-            
+  .main-content {
+    font-size: 45px;
+
+    // background-color: aqua;
+    .contenir {
+      height: 8vh;
+
+      h4 {
+        font-size: 40px;
+      }
+
+      .user-info {
+
+        .img {
+          width: 100px;
+          height: 100px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
 
-        .cartes_crud{
-            margin-top: 70px;
-            .carte1{
-             width: 500px;
-            height: 150px;
-            i{
-                font-size: 60px;
-              }
-              a{
-                h5{
-                    color: white;
-                    font-size: 45px;
-                }
-              }
-            }
-    
-            .carte2{
-                width: 500px;
-                height: 150px;
-                i{
-                    font-size: 60px;
-                  }
-                  a{
-                    h5{
-                        color: white;
-                        font-size: 45px;
-                    }
-                  }
-               }
-    
-               .carte3{
-                width: 500px;
-            height: 150px;
-            i{
-                font-size: 60px;
-              }
-              a{
-                h5{
-                    color: white;
-                    font-size: 45px;
-                }
-              }
-               }
-    
-               .carte4{
-                width: 500px;
-                height: 150px;
-                i{
-                    font-size: 60px;
-                  }
-                  a{
-                    h5{
-                        color: white;
-                        font-size: 45px;
-                    }
-                  }
-               }
-    
-               .carte5{
-                width: 500px;
-                height: 150px;
-                i{
-                    font-size: 60px;
-                  }
-                  a{
-                    h5{
-                        color: white;
-                        font-size: 45px;
-                    }
-                  }
-               }
+        p {
+          position: relative;
+          top: 10px;
+          font-size: 37.5px;
         }
+      }
+
     }
+
+    .cartes_crud {
+      margin-top: 70px;
+
+      .carte1 {
+        width: 500px;
+        height: 150px;
+
+        i {
+          font-size: 60px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 45px;
+          }
+        }
+      }
+
+      .carte2 {
+        width: 500px;
+        height: 150px;
+
+        i {
+          font-size: 60px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 45px;
+          }
+        }
+      }
+
+      .carte3 {
+        width: 500px;
+        height: 150px;
+
+        i {
+          font-size: 60px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 45px;
+          }
+        }
+      }
+
+      .carte4 {
+        width: 500px;
+        height: 150px;
+
+        i {
+          font-size: 60px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 45px;
+          }
+        }
+      }
+
+      .carte5 {
+        width: 500px;
+        height: 150px;
+
+        i {
+          font-size: 60px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 45px;
+          }
+        }
+      }
+
+      .carte6 {
+        width: 500px;
+        height: 150px;
+
+        i {
+          font-size: 60px;
+        }
+
+        a {
+          h5 {
+            color: white;
+            font-size: 45px;
+          }
+        }
+      }
+    }
+  }
 }

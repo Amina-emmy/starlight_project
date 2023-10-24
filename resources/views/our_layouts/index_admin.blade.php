@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="{{ asset('storage/logo/star_ico.png') }}">
+    <title>Starlight</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- Fontawesome --}}
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.3.0-web/css/all.min.css') }}">
 
 </head>
@@ -15,13 +17,11 @@
 
     <div class="sidebar">
         <div class="logo">
-            <img src="{{ asset('storage/logo/starlight_logo.png') }}" alt="Glowing Image" class="glow-image">
+            <img src="{{ asset('storage/logo/starlight_logo.png') }}" alt="Glowing logo" class="glow-image">
         </div>
-
         <ul class="menu">
             <li>
-                {{-- <a href="{{route('dashboard')}}"> --}}
-                <a href="{{route("admin.index")}}">
+                <a href="{{ route('admin.index') }}">
                     <i class="fa-solid fa-gauge-high"></i>
                     <span>Dashboard</span>
                 </a>
@@ -48,18 +48,7 @@
                     <i class="fa-solid fa-trophy"></i>
                     <span>Game</span>
                 </a>
-
-
-
             </li>
-
-            <ol class="test">
-                {{-- <a href="{{route('test')}}"> --}}
-                <i class="fa-solid fa-clapperboard"></i>
-
-                <span>Episode</span>
-                {{-- </a> --}}
-            </ol>
 
             <ol class="test">
                 {{-- <a href={{route('audition')}}> --}}
@@ -101,14 +90,15 @@
                 </a>
 
             </li>
-
-
-            <li class="logout">
-                <a href="#">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    <span>Logout</span>
-                </a>
-            </li>
+            <form action="{{ route('logout') }}" method="POST">
+                <li class="logout">
+                    @csrf
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span><button type="submit">Logout</button></span>
+                    </a>
+                </li>
+            </form>
         </ul>
 
     </div>
