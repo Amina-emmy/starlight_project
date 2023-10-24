@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'image' => 'admin_image.png',
             'email' => 'admin@starlight.ma',
-            'password' => bcrypt('admin2m'),
+            'password' => bcrypt('admin2mstar'),
         ])->assignRole('admin');
 
         //^ creer compte des 5 jurys
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
                 'name' => 'jury ' . $i,
                 'image' => 'jury_avatar.jpg',
                 'email' => 'jury' . $i . '@starlight.ma',
-                'password' => bcrypt('jury2m'), // Change the password as needed
+                'password' => bcrypt('jury2mstar'), // Change the password as needed
             ])->assignRole('jury');
         }
 
