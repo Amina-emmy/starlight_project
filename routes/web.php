@@ -48,7 +48,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin/users',[AdminController::class,'indexUsers'])->name('admin.users'); 
     //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
-    
+    Route::put('/admin/users/{jury}/update',[AdminController::class,'updateJury'])->name('admin.updateJury');
 });
 
 

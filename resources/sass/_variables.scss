@@ -7,6 +7,7 @@ $red : #e21919;
 $blue : #1431d44f;
 $orange : #db850d;
 $tablejury: #a6a0ff;
+$btnjury:#5c2452;
 $tablepub: #ffd297;
 
 
@@ -15,6 +16,9 @@ $custom-colors : (
     "red" : $red ,
     "blue" : $blue ,
     "orange" : $orange ,
+    "tablejury" : $tablejury , "tablepub" : $tablepub ,
+    "btnjury":$btnjury,
+
 );
 $theme-colors : map-merge($theme-colors , $custom-colors);
 

@@ -18,7 +18,9 @@
                 </td>
                 <td>{{ $jury->name }}</td>
                 <td>{{ $jury->email }}</td>
-                <td>edit</td>
+                <td>
+                    @include('backend.gestion.partials.users.editJuryModal')
+                </td>
             </tr>
         @endforeach
     </tbody>
