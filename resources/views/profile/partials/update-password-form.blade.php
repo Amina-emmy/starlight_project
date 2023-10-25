@@ -45,4 +45,10 @@
             @endif
         </div>
     </form>
+    <div class="d-flex justify-content-end mt-16">
+        <form action="{{ route('logout') }}" method="POST" class="mt-3">
+                @csrf
+                <button class="btn btn-danger mt-16 px-4 py-1" type="submit">Log out</button>
+        </form>
+    </div>
 </section>

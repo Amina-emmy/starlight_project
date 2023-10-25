@@ -12,5 +12,6 @@
                     @include('profile.partials.update-password-form')
                 </div>
             </div>
+            {{-- I ERASE THE DELETE FORM FROM HERE SO THE ADMIN CAN NOT DELETE HIS ACCOUNT --}}
     </div>
 </div>

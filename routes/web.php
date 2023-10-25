@@ -43,11 +43,12 @@ Route::get('/dashboard', function () {
 //^ ADMIN
 Route::middleware('auth', 'role:admin')->group(function () {
     //~ VIEWS
-    Route::get('/admin/home',[AdminController::class,'index'])->name('admin.index'); //dashboardAdmin
+    Route::get('/admin/home',[AdminController::class,'index'])->name('admin.dashboardAdmin'); 
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/admin/users',[AdminController::class,'indexUsers'])->name('admin.users'); 
     //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
 });
 
 

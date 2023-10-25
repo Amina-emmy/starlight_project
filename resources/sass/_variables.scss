@@ -6,9 +6,11 @@
 $red : #e21919;
 $blue : #1431d44f;
 $orange : #db850d;
-$taskDone: #71e263;
+$tablejury: #a6a0ff;
+$tablepub: #ffd297;
 
-//^ Map pour backgound-colors & text-colors
+
+//? Map pour backgound-colors & text-colors
 $custom-colors : (
     "red" : $red ,
     "blue" : $blue ,
@@ -16,11 +18,15 @@ $custom-colors : (
 );
 $theme-colors : map-merge($theme-colors , $custom-colors);
 
-//^ Map pour table-colors
+//? Map pour table-colors
 $custom-table-variants: (
-    "taskDone" : $taskDone ,
+    "tablejury" : $tablejury , "tablepub" : $tablepub ,
 );
 $table-variants: map-merge($table-variants, $custom-table-variants);
+
+
+
+
 
 
 // Typography

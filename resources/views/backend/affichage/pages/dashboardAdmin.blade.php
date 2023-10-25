@@ -21,7 +21,7 @@
 
     {{-- ADMIN --}}
     {{-- cartes pour les cruds --}}
-    <h1>Administration de données</h1>
+    <h1>JEU :  Administration de données</h1>
     <div class="cartes_crud">
         <div class="carte6">
             <i class="fa-solid fa-clapperboard"></i>

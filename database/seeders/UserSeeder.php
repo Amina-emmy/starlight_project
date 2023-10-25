@@ -34,17 +34,17 @@ class UserSeeder extends Seeder
         }
 
         //^ creer compte des 100 membre de public
-        // $publicCount = 100; 
+        $publicCount = 100; 
 
-        // for ($i = 1; $i <= $publicCount; $i++) {
-        //     //les membres de public peut se connecter using email & password  
-        //     User::create([
-        //         'name' => 'public ' . $i,
-        //         'image' => 'public_avatar.png',
-        //         'email' => 'public' . $i . '@starlight.ma',
-        //         'password' => bcrypt('public2m'), // Change the password as needed
-        //     ])->assignRole('public');
-        // }
+        for ($i = 1; $i <= $publicCount; $i++) {
+            //les membres de public peut se connecter using email & password  
+            User::create([
+                'name' => 'public ' . $i,
+                'image' => 'public_avatar.png',
+                'email' => 'public' . $i . '@starlight.ma',
+                'password' => bcrypt('public2m'), // Change the password as needed
+            ])->assignRole('public');
+        }
 
     }
 }

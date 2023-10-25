@@ -12,10 +12,11 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 //^ ADMIN
-Route::middleware('auth','role:admin')->group(function () {
-    Route::get('/admin/register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('/admin/register', [RegisteredUserController::class, 'store']);
-});
+//! Pas de register cause if the users are more than our basic numbers (5 jurys & 100 public) the whole application's logic will be messed up
+// Route::middleware('auth','role:admin')->group(function () {
+//     Route::get('/admin/register', [RegisteredUserController::class, 'create'])->name('register');
+//     Route::post('/admin/register', [RegisteredUserController::class, 'store']);
+// });
 
 Route::middleware('guest')->group(function () {
 

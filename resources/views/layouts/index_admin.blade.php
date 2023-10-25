@@ -14,21 +14,21 @@
 </head>
 
 <body class="dashboard">
-
+    @include('layouts.flash')
     <div class="sidebar">
         <div class="logo">
             <img src="{{ asset('storage/logo/starlight_logo.png') }}" alt="Glowing logo" class="glow-image">
         </div>
         <ul class="menu">
             <li>
-                <a href="{{ route('admin.index') }}">
+                <a href="{{ route('admin.dashboardAdmin') }}">
                     <i class="fa-solid fa-gauge-high"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="{{route("admin.users")}}">
                     <i class="fa-solid fa-users"></i>
                     <span>Users</span>
                 </a>
