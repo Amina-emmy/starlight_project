@@ -14,7 +14,7 @@
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>
-                    <img src="{{ asset('storage/images_users/' . $jury->image) }}" width="50" alt="jury avatar">
+                    <img src="{{ asset('storage/images_users/'.$jury->image) }}" class="rounded-circle" width="70" alt="jury avatar">
                 </td>
                 <td>{{ $jury->name }}</td>
                 <td>{{ $jury->email }}</td>

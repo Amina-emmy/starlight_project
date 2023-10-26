@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -24,17 +28,63 @@ class AdminController extends Controller
     //^ Update
     public function updateJury(Request $request, User $jury)
     {
-        // request()->validate([
-        //     "image" => "image|mimes:png,jpg,jpeg,gif|max:2048",
-        //     "name" => "string|max:255",
-        //     "email" => "email|max:255"
-        // ]);
-        
+        request()->validate([
+            "image" => "image|mimes:png,jpg,jpeg,gif|max:2048",
+            "name" => "string|max:255|required",
+            "email" => "email|max:255|required"
+        ]);
 
-        dd("paaassss");
+        $existEmail = User::where("email", $request->email)->first(); // verifier si l email ecrit deja reserver
+        $pattern = '/^.+@starlight\.ma$/'; // syntaxe du email pour users, Except Admin
+        $newImage = $request->file('image'); // new pfp de jury
 
+        // if ($jury->email != $request->email) {   //todo :email update
+        //     if (!$existEmail && preg_match($pattern, $request->email)) {
+        //         $jury->updated_at = Carbon::now();
+        //         $jury->email = $request->email;
+        //         $jury->save();
+        //         return redirect()->back()->with('success', 'Informations Updated Successfully');
+        //     } else {
+        //         return redirect()->back()->with('error', 'Changes do not respect our pattern');
+        //     }
+        // } else if ($jury->name != $request->name) { //todo :name update
+        //     $jury->name = $request->name;
+        //     $jury->save();
+        //     return redirect()->back()->with('success', 'Informations Updated Successfully');
 
+        if ($newImage != null) {
+            //todo :image update
+            if ($jury->image != "jury_avatar.jpg") {
+                // delete image from le dossier images_users if it is different from the one in the seeder
+                Storage::disk("public")->delete('images_users/' . $jury->image);
+            }
+            // dans database
+            $jury->image = $newImage->hashName();
+            $jury->save();
+            //enregister the new image dans le dossier images_users
+            $newImage->storePublicly('images_users/', 'public');
 
-        return back()->with('success','Informations Updated Successfully');
+            if (!$existEmail && preg_match($pattern, $request->email)) {
+                $jury->updated_at = Carbon::now();
+                $jury->email = $request->email;
+                $jury->name = $request->name;
+                $jury->save();
+            }else{
+                $jury->name = $request->name;
+                $jury->save();
+            }
+            return redirect()->back()->with('warning', 'Informations Updated Successfully');
+        } else {
+            if (!$existEmail && preg_match($pattern, $request->email)) {
+                $jury->updated_at = Carbon::now();
+                $jury->email = $request->email;
+                $jury->name = $request->name;
+                $jury->save();
+            } else {
+                $jury->name = $request->name;
+                $jury->save();
+            }
+            return redirect()->back()->with('success', 'Informations Updated Successfully');
+        }
     }
 }

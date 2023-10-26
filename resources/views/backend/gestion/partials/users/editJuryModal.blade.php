@@ -25,11 +25,11 @@
                         </div>
                         <div class="py-2">
                             <label for="name">Name :</label>
-                            <input type="text" name="name" class="form-control mt-1" value="{{old("name",$jury->name)}}">
+                            <input type="text" name="name" class="form-control mt-1" value="{{$jury->name}}">
                         </div>
                         <div class="py-2">
                             <label for="email">Email :</label>
-                            <input type="text" name="email" class="form-control mt-1" value="{{old("email",$jury->email)}}">
+                            <input type="text" name="email" class="form-control mt-1" value="{{$jury->email}}">
                         </div>
                     </div>
                     <div class="mt-4 d-flex gap-2 justify-content-end">
