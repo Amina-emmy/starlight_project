@@ -14,7 +14,6 @@
 </head>
 
 <body class="dashboard">
-    @include('layouts.flash')
     <div class="sidebar">
         <div class="logo">
             <img src="{{ asset('storage/logo/starlight_logo.png') }}" alt="Glowing logo" class="glow-image">

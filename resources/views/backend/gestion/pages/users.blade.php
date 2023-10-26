@@ -4,7 +4,6 @@
         <div class="header-title">
             <h4>Users</h4>
         </div>
-    
         <div class="user-info">
             <div class="img">
                 <a href="{{ route('profile.edit') }}">
@@ -16,7 +15,12 @@
             </a>
         </div>
     </div>
-    <div class="py-3 container">
+    {{-- MESSAGE D' ALERTS --}}
+    <div class="mt-2">
+        @include('layouts.flash')
+    </div>
+    {{-- END MESSAGE D' ALERTS --}}
+    <div class="py-2 container">
         <h1>Jury Members :</h1>
         @include('backend.gestion.partials.users.tableJurys')
 

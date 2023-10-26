@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -34,26 +32,11 @@ class AdminController extends Controller
             "email" => "email|max:255|required"
         ]);
 
-        $existEmail = User::where("email", $request->email)->first(); // verifier si l email ecrit deja reserver
+        $existEmail = User::where("email", $request->email)->first(); // pour verifier si l email ecrit deja reserver
         $pattern = '/^.+@starlight\.ma$/'; // syntaxe du email pour users, Except Admin
         $newImage = $request->file('image'); // new pfp de jury
 
-        // if ($jury->email != $request->email) {   //todo :email update
-        //     if (!$existEmail && preg_match($pattern, $request->email)) {
-        //         $jury->updated_at = Carbon::now();
-        //         $jury->email = $request->email;
-        //         $jury->save();
-        //         return redirect()->back()->with('success', 'Informations Updated Successfully');
-        //     } else {
-        //         return redirect()->back()->with('error', 'Changes do not respect our pattern');
-        //     }
-        // } else if ($jury->name != $request->name) { //todo :name update
-        //     $jury->name = $request->name;
-        //     $jury->save();
-        //     return redirect()->back()->with('success', 'Informations Updated Successfully');
-
         if ($newImage != null) {
-            //todo :image update
             if ($jury->image != "jury_avatar.jpg") {
                 // delete image from le dossier images_users if it is different from the one in the seeder
                 Storage::disk("public")->delete('images_users/' . $jury->image);

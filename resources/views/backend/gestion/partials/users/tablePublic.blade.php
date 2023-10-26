@@ -10,11 +10,10 @@
     </thead>
     <tbody class="table-group-divider">
         @foreach ($publics as $public)
-            <tr>
+            <tr valign="middle">
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>
-                    <img src="{{ asset('storage/images_users/' . $public->image) }}" width="50"
-                        alt="public avatar">
+                    <img src="{{ asset('storage/images_users/' . $public->image) }}" width="40" alt="public avatar">
                 </td>
                 <td>{{ $public->name }}</td>
                 <td>{{ $public->email }}</td>
