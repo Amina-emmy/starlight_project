@@ -56,7 +56,7 @@ class AdminController extends Controller
                 $jury->name = $request->name;
                 $jury->save();
             }
-            return redirect()->back()->with('warning', 'Informations Updated Successfully');
+            return redirect()->back()->with('success', 'Informations Updated Successfully');
         } else {
             if (!$existEmail && preg_match($pattern, $request->email)) {
                 $jury->updated_at = Carbon::now();

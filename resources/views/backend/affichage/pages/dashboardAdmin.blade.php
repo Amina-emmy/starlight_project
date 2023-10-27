@@ -21,44 +21,44 @@
 
     {{-- ADMIN --}}
     {{-- cartes pour les cruds --}}
-    <h1>JEU :  Administration de données</h1>
+    <h1>JEU : Administration de données</h1>
     <div class="cartes_crud">
-        <div class="carte6">
-            <i class="fa-solid fa-clapperboard"></i>
-            <a href="">
-                <h5>Episode</h5>
-            </a>
-        </div>
-        <div class="carte1">
-            <i class="fa-solid fa-street-view"></i>
-            <a href="#">
+        <a href="{{ route('admin.episodes') }}">
+            <div class="carte6">
+                <i class="fa-solid fa-clapperboard"></i>
+                <h5>Episodes</h5>
+            </div>
+        </a>
+        <a href="#">
+            <div class="carte1">
+                <i class="fa-solid fa-street-view"></i>
                 <h5>Audition</h5>
-            </a>
-        </div>
-        <div class="carte2">
-            <i class="fa-solid fa-user-group"></i>
-            <a href="#">
+            </div>
+        </a>
+        <a href="#">
+            <div class="carte2">
+                <i class="fa-solid fa-user-group"></i>
                 <h5>Face à Face</h5>
-            </a>
-        </div>
-        <div class="carte3">
-            <i class="fa-solid fa-shield"></i>
-            <a href="#">
+            </div>
+        </a>
+        <a href="#">
+            <div class="carte3">
+                <i class="fa-solid fa-shield"></i>
                 <h5>UltimeFace à Face</h5>
-            </a>
-        </div>
+            </div>
+        </a>
+        <a href="#">
         <div class="carte4">
             <i class="fa-solid fa-shield-halved"></i>
-            <a href="#">
                 <h5>Demi Finale</h5>
-            </a>
-        </div>
+            </div>
+        </a>
+        <a href="#">
         <div class="carte5">
             <i class="fa-solid fa-trophy"></i>
-            <a href="#">
                 <h5>Finale</h5>
-            </a>
-        </div>
+            </div>
+        </a>
     </div>
 
 </div>
