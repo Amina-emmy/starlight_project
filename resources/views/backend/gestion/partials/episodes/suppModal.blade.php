@@ -16,7 +16,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="{{route("admin.destroyEp",$episode->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <div class="d-flex flex-column align-items-center py-3">

@@ -16,7 +16,7 @@
                 <td>{{ $episode->prime }}</td>
                 <td>{{ $episode->category }}</td>
                 <td>
-                    Edit
+                    @include('backend.gestion.partials.episodes.editModal')
                 </td>
                 <td>
                     @include('backend.gestion.partials.episodes.suppModal')

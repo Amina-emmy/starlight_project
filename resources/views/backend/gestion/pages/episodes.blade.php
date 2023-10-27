@@ -21,7 +21,10 @@
     </div>
     {{-- END MESSAGE D' ALERTS --}}
     <div class="py-2 container">
-        <h1>Episodes :</h1>
+        <div class="mb-2 mt-4 d-flex justify-content-center">
+            @include('backend.gestion.partials.episodes.ajoutModal')
+        </div>
+        {{-- TABLE --}}
         @include('backend.gestion.partials.episodes.tableEpisodes')
     </div>
 

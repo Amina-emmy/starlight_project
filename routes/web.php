@@ -50,7 +50,14 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin/episodes',[EpisodeController::class,'indexEp'])->name('admin.episodes');
     //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
+    //USERS
     Route::put('/admin/users/{jury}/update',[AdminController::class,'updateJury'])->name('admin.updateJury');
+    // EPISODES
+    Route::post('/admin/episodes/store',[EpisodeController::class,'storeEp'])->name('admin.storeEp');
+    Route::put('/admin/episodes/update/{episode}',[EpisodeController::class,'updateEp'])->name('admin.updateEp');
+    Route::delete('/admin/episodes/destroy/{episode}',[EpisodeController::class,'destroyEp'])->name('admin.destroyEp');
+
+
 });
 
 

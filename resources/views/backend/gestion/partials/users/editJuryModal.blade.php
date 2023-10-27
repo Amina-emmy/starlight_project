@@ -34,7 +34,6 @@
                     </div>
                     <div class="mt-4 d-flex gap-2 justify-content-end">
                         <button type="submit" class="btn btn-btnjury">Save changes</button>
-                        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
             </div>
