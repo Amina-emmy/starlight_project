@@ -38,7 +38,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        // clear the cache before log out
+        // clear the cache before log out so he can reconnect
         $user = Auth::user();
         Cache::forget('user_session_' . $user->id);
         // log out
