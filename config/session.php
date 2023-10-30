@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
+    'driver' => env('SESSION_DRIVER', 'database'),
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'lifetime' => env('SESSION_LIFETIME', 120),
+    'lifetime' => env('SESSION_LIFETIME', 1440), // a day
 
     'expire_on_close' => false,
 
@@ -85,7 +85,8 @@ return [
     |
     */
 
-    'table' => 'sessions',
+    'table' => 'sessions', //default table
+
 
     /*
     |--------------------------------------------------------------------------

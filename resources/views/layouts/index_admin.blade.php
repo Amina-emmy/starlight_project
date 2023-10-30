@@ -27,7 +27,7 @@
             </li>
 
             <li>
-                <a href="{{route("admin.users")}}">
+                <a href="{{ route('admin.users') }}">
                     <i class="fa-solid fa-users"></i>
                     <span>Users</span>
                 </a>
@@ -90,13 +90,15 @@
 
             </li>
             <form action="{{ route('logout') }}" method="POST">
-                <li class="logout">
-                    @csrf
-                    <a href="#">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        <span><button type="submit">Logout</button></span>
-                    </a>
-                </li>
+                @csrf
+                <button type="submit">
+                    <li class="logout">
+                        <a href="#">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </button>
             </form>
         </ul>
 

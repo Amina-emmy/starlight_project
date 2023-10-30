@@ -30,15 +30,12 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
-    $jurys = User::role('jury')->get(); // get from the database all the jurys
-    $publics = User::role('public')->get(); // get from the database all the public
-    
     if (auth()->user()->hasRole('admin')) {
         return view("backend.affichage.pages.dashboardAdmin");
     } elseif (auth()->user()->hasRole('jury')) {
         return view('frontend.pages.juryHome');
     }
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified','single_session'])->name('dashboard');
 
 
 //^ ADMIN
