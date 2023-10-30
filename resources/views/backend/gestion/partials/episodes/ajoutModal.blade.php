@@ -1,7 +1,7 @@
 {{-- AJOUT MODAL POUR EPISODES --}}
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Add Episode
+    <i class="fa-regular fa-calendar-plus me-1"></i> Add Episode
 </button>
 {{-- AJOUT --}}
 <!-- Modal -->
