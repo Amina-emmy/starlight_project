@@ -59,15 +59,15 @@ class Kernel extends HttpKernel
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'limitaccess' => \App\Http\Middleware\LimitAccessMiddleware::class, // mine
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
-        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class, // spatie
+        'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class, //spatie
         'signed' => \App\Http\Middleware\ValidateSignature::class,
-        'single_session' => \App\Http\Middleware\SingleSessionMiddleware::class,
+        'single_session' => \App\Http\Middleware\SingleSessionMiddleware::class, // mine
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-
     ];
 }

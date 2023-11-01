@@ -27,7 +27,7 @@ class SingleSessionMiddleware extends Authenticate
             if (Cache::has($sessionKey)) {
                 // If a session key is found, that means the user is already logged in somewhere else
                 Auth::logout();
-                return redirect()->route('login')->with('error', 'You can only have one active session at a time.');
+                return redirect()->route('welcome')->with('error', 'You can only have one active session at a time.');
             }
 
             // Set a cache entry to track the user's session

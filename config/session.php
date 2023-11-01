@@ -85,8 +85,8 @@ return [
     |
     */
 
-    'table' => 'sessions', //default table
-
+    // 'table' => 'sessions', //default table
+    'table' => 'cache',
 
     /*
     |--------------------------------------------------------------------------

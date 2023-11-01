@@ -20,13 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 //* Welcome View => Login page
 Route::get('/', function () {
-    if (!auth()->user()) {
-        // si l'user n'est pas connecter
         return view('welcome');
-    } else {
-        return redirect('/dashboard');
-    }
-});
+})->middleware(['limitaccess'])->name('welcome');
 
 
 Route::get('/dashboard', function () {
@@ -35,7 +30,7 @@ Route::get('/dashboard', function () {
     } elseif (auth()->user()->hasRole('jury')) {
         return view('frontend.pages.juryHome');
     }
-})->middleware(['auth', 'verified','single_session'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 //^ ADMIN
@@ -61,7 +56,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
 //^ JURY
 Route::middleware('auth', 'role:jury')->group(function () {
     //~ VIEWS
-    // Route::get('/jury/home',[JuryController::class,'index'])->name('jury.index');
+    Route::get('/jury/home',[JuryController::class,'index'])->name('jury.index');
 });
 
 require __DIR__ . '/auth.php';

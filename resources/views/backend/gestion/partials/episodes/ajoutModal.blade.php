@@ -17,15 +17,15 @@
                     @csrf
                     <div>
                         <div class="py-2">
-                            <label for="day" name="day">Day:</label>
+                            <label for="day" class="fw-bold">Day:</label>
                             <input type="date" name="day" class="form-control">
                         </div>
                         <div class="py-2">
-                            <label for="prime" name="prime">Prime:</label>
+                            <label for="prime" class="fw-bold">Prime:</label>
                             <input type="number" name="prime" min="1" class="form-control">
                         </div>
                         <div class="py-2">
-                            <label for="category">Category:</label>
+                            <label for="category" class="fw-bold">Category:</label>
                             <select name="category" class="form-control">
                                 <option value="Aud">Audition</option>
                                 <option value="FaF">FAF</option>
