@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>juuuryyy</h1>
+    <h1>jury home page</h1>
 </body>
 </html>

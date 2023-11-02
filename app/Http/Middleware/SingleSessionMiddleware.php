@@ -21,17 +21,17 @@ class SingleSessionMiddleware extends Authenticate
         $this->authenticate($request, $guards);
 
         if (Auth::check()) {
-            $user = Auth::user();
-            $sessionKey = 'user_session_' . $user->id;
+            // $user = Auth::user();
+            // $sessionKey = 'user_session_' . $user->id;
 
-            if (Cache::has($sessionKey)) {
-                // If a session key is found, that means the user is already logged in somewhere else
-                Auth::logout();
-                return redirect()->route('welcome')->with('error', 'You can only have one active session at a time.');
-            }
+            // if (Cache::has($sessionKey)) {
+            //     // If a session key is found, that means the user is already logged in somewhere else
+            //     Auth::logout();
+            //     return redirect()->route('welcome')->with('error', 'You can only have one active session at a time.');
+            // }
 
-            // Set a cache entry to track the user's session
-            Cache::put($sessionKey, true, now()->addMinutes(20));
+            // // Set a cache entry to track the user's session
+            // Cache::put($sessionKey, true, now()->addMinutes(20));
         }
 
 
