@@ -1,15 +1,15 @@
 {{-- AJOUT MODAL POUR EPISODES --}}
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#episodeAjout">
     <i class="fa-regular fa-calendar-plus me-1"></i> Add Episode
 </button>
 {{-- AJOUT --}}
 <!-- Modal -->
-<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="episodeAjout" tabindex="-1" aria-labelledby="episodeAjoutLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-black" id="exampleModalLabel">Ajouter Episode :</h4>
+                <h4 class="modal-title text-black" id="episodeAjoutLabel">Ajouter Episode :</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

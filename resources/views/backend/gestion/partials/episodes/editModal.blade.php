@@ -1,11 +1,11 @@
 {{-- EDIT MODAL POUR EPISODES --}}
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-tablejury" data-bs-toggle="modal" data-bs-target="#editModal{{ $episode->id }}">
+<button type="button" class="btn btn-tablejury" data-bs-toggle="modal" data-bs-target="#editmodalEp{{ $episode->id }}">
     <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
 </button>
 
 <!-- Modal UPDATE -->
-<div class="modal fade" id="editModal{{ $episode->id }}" tabindex="-1" aria-labelledby="editModal{{ $episode->id }}Label"
+<div class="modal fade" id="editmodalEp{{ $episode->id }}" tabindex="-1" aria-labelledby="editmodalEp{{ $episode->id }}Label"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
