@@ -11,4 +11,9 @@ class Episode extends Model
     protected $fillable=[
         'day','prime','category'
     ];
+
+    public function aud_candidats()
+    {
+        return $this->hasMany(AudCandidat::class);
+    }
 }

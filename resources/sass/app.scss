@@ -8,3 +8,17 @@
 @import 'bootstrap/scss/bootstrap';
 
 @import 'modules/allModules';
+
+@media only screen and (min-width: 1436px) and (max-width:1999px)
+{
+    h5{
+        font-size: 26px;
+    }
+}
+
+@media only screen and (min-width: 2000px)
+{
+    h5{
+        font-size: 31px;
+    }
+}

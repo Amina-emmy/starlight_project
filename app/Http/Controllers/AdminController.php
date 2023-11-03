@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AudCandidat;
+use App\Models\AudJuryVote;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -70,4 +72,24 @@ class AdminController extends Controller
             return redirect()->back()->with('success', 'Informations Updated Successfully');
         }
     }
+
+    //* Gestion => aud_candidat
+    //^ generer table de vote pour aud_candidats
+    public function storeVoteAudCandi()
+    {
+        $candidats=AudCandidat::all();
+            foreach ($candidats as $candidat) {
+                $data=[
+                    "vote_jury1"=>false,
+                    "vote_jury2"=>false,
+                    "vote_jury3"=>false,
+                    "vote_jury4"=>false,
+                    "vote_jury5"=>false,
+                    "jury_points"=>0,
+                    "aud_candidat_id"=>$candidat->id,
+                ];
+                AudJuryVote::create($data);
+            }
+            return redirect()->back()->with('success', 'Informations insérées avec succès!');
+        }
 }

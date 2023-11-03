@@ -50,6 +50,12 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::post('/admin/episodes/store',[EpisodeController::class,'storeEp'])->name('admin.storeEp');
     Route::put('/admin/episodes/update/{episode}',[EpisodeController::class,'updateEp'])->name('admin.updateEp');
     Route::delete('/admin/episodes/destroy/{episode}',[EpisodeController::class,'destroyEp'])->name('admin.destroyEp');
+    // Aud_candidat
+    Route::post('/admin/audition/candidats/store',[AudCandidatController::class,"StoreAudCandi"])->name("store.audCandidat");
+    Route::delete('/admin/audition/candidats/update/{audCandidat}',[AudCandidatController::class,"destroyAudCandi"])->name("destroy.audCandidat");
+    Route::put('/admin/audition/candidats/delete/{audCandidat}',[AudCandidatController::class,"updateAudCandi"])->name("update.audCandidat");
+    Route::post('/admin/audition/candidats/storevotes',[AdminController::class,"storeVoteAudCandi"])->name("store.voteAud");
+
 
 
 });
