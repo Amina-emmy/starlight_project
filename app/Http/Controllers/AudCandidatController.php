@@ -8,7 +8,8 @@ class AudCandidatController extends Controller
 {
     public function indexAud()
     {
-        //all candidat table
+        //candidat table aud
+        //table de vote aud
         return view("backend.gestion.pages.audition");
     }
 }

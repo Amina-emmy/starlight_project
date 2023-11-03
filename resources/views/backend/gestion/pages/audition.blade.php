@@ -20,12 +20,12 @@
         @include('layouts.flash')
     </div>
     {{-- END MESSAGE D' ALERTS --}}
+
     <div class="py-2 container">
         <div class="mb-2 mt-4 d-flex justify-content-center">
             {{-- modal d ajout --}}
         </div>
         {{-- TABLE --}}
-        
     </div>
 
 </div>
