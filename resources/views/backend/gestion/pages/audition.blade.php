@@ -2,12 +2,12 @@
 <div class="main-content">
     <div class="contenir">
         <div class="header-title">
-            <h4>Episodes : gestion</h4>
+            <h4>Audition : gestion</h4>
         </div>
         <div class="user-info">
             <div class="img">
                 <a href="{{ route('profile.edit') }}">
-                    <img src={{ asset('storage/images_users/' . auth()->user()->image) }} alt="" srcset="">
+                    <img src={{ asset('storage/images_users/' . auth()->user()->image) }} alt="pfp">
                 </a>
             </div>
             <a href="{{ route('profile.edit') }}" class="nav-link">
@@ -22,10 +22,10 @@
     {{-- END MESSAGE D' ALERTS --}}
     <div class="py-2 container">
         <div class="mb-2 mt-4 d-flex justify-content-center">
-            @include('backend.gestion.partials.episodes.ajoutModal')
+            {{-- modal d ajout --}}
         </div>
         {{-- TABLE --}}
-        @include('backend.gestion.partials.episodes.tableEpisodes')
+        
     </div>
 
 </div>

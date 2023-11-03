@@ -36,6 +36,7 @@
 
             <li>
                 <a href="#">
+                    {{-- page pour gerer les candidat avant Game --}}
                     <i class="fa-solid fa-user"></i>
                     <span>Candidats</span>
                 </a>

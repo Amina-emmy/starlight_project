@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AudCandidatController;
 use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\JuryController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +40,8 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/admin/users',[AdminController::class,'indexUsers'])->name('admin.users'); 
     Route::get('/admin/episodes',[EpisodeController::class,'indexEp'])->name('admin.episodes');
+    Route::get('/admin/audition',[AudCandidatController::class,'indexAud'])->name('admin.audGestion');
+
     //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
     //USERS

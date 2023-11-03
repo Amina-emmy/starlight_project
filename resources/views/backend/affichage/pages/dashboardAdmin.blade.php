@@ -29,7 +29,7 @@
                 <h5>Episodes</h5>
             </div>
         </a>
-        <a href="#">
+        <a href="{{ route('admin.audGestion') }}">
             <div class="carte1">
                 <i class="fa-solid fa-street-view"></i>
                 <h5>Audition</h5>
