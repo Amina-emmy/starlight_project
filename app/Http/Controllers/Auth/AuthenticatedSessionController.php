@@ -29,6 +29,9 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        //each time the user try to log in => his logged_in va incrementer par 1
+        $request->user()->logged_in=$request->user()->logged_in+1;
+        $request->user()->save();
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
@@ -38,9 +41,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        // clear the cache before log out so he can reconnect
-        // $user = Auth::user();
-        // Cache::forget('user_session_' . $user->id);
+        // when the user log out => his logged_in va etre initialiser par 0
+        $user = Auth::user();
+        $user->logged_in=0;
+        $user->save();
         // log out
         Auth::guard('web')->logout();
         $request->session()->invalidate();

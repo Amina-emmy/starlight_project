@@ -23,14 +23,13 @@ Route::get('/', function () {
         return view('welcome');
 })->middleware(['limitaccess'])->name('welcome');
 
-
 Route::get('/dashboard', function () {
     if (auth()->user()->hasRole('admin')) {
         return view("backend.affichage.pages.dashboardAdmin");
     } elseif (auth()->user()->hasRole('jury')) {
         return view('frontend.pages.juryHome');
     }
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified','logged_in'])->name('dashboard');
 
 
 //^ ADMIN

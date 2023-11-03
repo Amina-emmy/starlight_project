@@ -25,7 +25,7 @@ class CreatePermissionTables extends Migration
             throw new \Exception('Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.');
         }
 
-        if (!Schema::hasTable('permissions')) {
+        if (!Schema::hasTable('permissions')) { //! i added this condition to solve the problem "table already exist in database"
             Schema::create($tableNames['permissions'], function (Blueprint $table) {
                 $table->bigIncrements('id'); // permission id
                 $table->string('name');       // For MySQL 8.0 use string('name', 125);
@@ -123,7 +123,7 @@ class CreatePermissionTables extends Migration
                     });
         }
 
-
+        //! these lines created an error in the database (idk why)
         // app('cache')
         //     ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
         //     ->forget(config('permission.cache.key'));

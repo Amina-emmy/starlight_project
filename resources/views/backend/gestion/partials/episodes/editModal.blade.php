@@ -22,8 +22,6 @@
                             <label for="day">Day:</label>
                             <input type="date" name="day" class="form-control" value="{{ $episode->day }}">
                         </div>
-                        @if ($loop->iteration > 9)
-                        {{-- Pour Ne pas modifier Que la date des Primes de base --}}
                             <div class="py-2">
                                 <label for="prime">Prime:</label>
                                 <input type="number" name="prime" class="form-control" min="1"
@@ -46,7 +44,6 @@
                                     </option>
                                 </select>
                             </div>
-                        @endif
                     </div>
                     <div class="mt-4 d-flex justify-content-end">
                         <button type="submit" class="btn btn-tablejury">Modifier</button>
