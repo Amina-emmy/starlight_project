@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("chanson");
             $table->string("ville_provenance");
             $table->string("date_naissance");
-            $table->foreignId("episode_id");
+            $table->foreignId("episode_id")->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

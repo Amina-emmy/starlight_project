@@ -1,5 +1,5 @@
  {{-- UPDATE --}}
- <td>
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-warning" data-bs-toggle="modal"
         data-bs-target="#Edit{{ $aud_candidat->id }}Label">
@@ -15,8 +15,8 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title text-black" id="exampleModalLabel">Audition
-                            Candidats </h1>
+                        <h4 class="modal-title text-black" id="exampleModalLabel">Audition
+                            Candidat Num: {{ $aud_candidat->badge }}</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
@@ -29,7 +29,6 @@
                                     class="form-control w-100"
                                     value="{{ $aud_candidat->badge }}">
                             </div>
-
                             <div class="">
                                 <label for="chanson" name="chanson">Chanson :</label>
                                 <input type="text" name="chanson" id=""
@@ -37,38 +36,29 @@
                                     value="{{ $aud_candidat->chanson }}">
                             </div>
                         </div>
-
                         <div class="">
-
                             <div class="">
                                 <label for="prenom" name="prenom">Prenom :</label>
                                 <input type="text" name="prenom" id=""
                                     class="form-control w-100"
                                     value="{{ $aud_candidat->prenom }}">
                             </div>
-
-
                             <div class="">
                                 <label for="gender" name="gender">Gender :</label>
                                 <select name="gender" id=""class="form-control w-100">                                   
                                     <option value="Femme" {{ $aud_candidat->gender === 'Femme' ? 'selected' : '' }}>
                                         Femme
                                     </option>
-
                                     <option value="Homme" {{$aud_candidat->gender === 'Homme' ? 'selected' : ''}}>Homme</option>
                                 </select>
                             </div>
-
                         </div>
-
                         <div class="">
                             <div class="">
                                 <label for="nom" name="nom">Nom :</label>
                                 <input type="text" name="nom" id=""
                                     class="form-control w-100" value="{{ $aud_candidat->nom }}">
                             </div>
-
-
                             <div class="">
                                 <label for="ville_provenance" name="ville_provenance">Ville
                                     :</label>
@@ -77,7 +67,6 @@
                                     value="{{ $aud_candidat->ville_provenance }}">
                             </div>
                         </div>
-
                         <div class="">
                             <div class="">
                                 <label for="date_naissance" name="date_naissance">Date Naissance
@@ -86,7 +75,6 @@
                                     class="form-control w-100"
                                     value="{{ $aud_candidat->date_naissance }}">
                             </div>
-
                             <div class="">
                                 <label for="episode_id">Episode :</label>
                                 <select name="episode_id" id=""
@@ -101,7 +89,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">Modifiez</button>
                     </div>
@@ -109,4 +96,3 @@
             </div>
         </div>
     </form>
-</td>

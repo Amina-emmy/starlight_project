@@ -21,7 +21,6 @@ class AudCandidatController extends Controller
     //* Store aud_candidat
     public function StoreAudCandi(Request $request)
     {
-
         request()->validate([
             "badge" => "required",
             "nom" => "required",

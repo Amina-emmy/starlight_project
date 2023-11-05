@@ -78,17 +78,22 @@ class AdminController extends Controller
     public function storeVoteAudCandi()
     {
         $candidats=AudCandidat::all();
+        // insert all the id aud_candidats in the vote table
             foreach ($candidats as $candidat) {
-                $data=[
-                    "vote_jury1"=>false,
-                    "vote_jury2"=>false,
-                    "vote_jury3"=>false,
-                    "vote_jury4"=>false,
-                    "vote_jury5"=>false,
-                    "jury_points"=>0,
-                    "aud_candidat_id"=>$candidat->id,
-                ];
-                AudJuryVote::create($data);
+                // check if candidat already has a line in the vote table
+                $existCandidat=AudJuryVote::where('aud_candidat_id',$candidat->id)->first();
+                if (!$existCandidat) {
+                    $data=[
+                        "vote_jury1"=>false,
+                        "vote_jury2"=>false,
+                        "vote_jury3"=>false,
+                        "vote_jury4"=>false,
+                        "vote_jury5"=>false,
+                        "jury_points"=>0,
+                        "aud_candidat_id"=>$candidat->id,
+                    ];
+                    AudJuryVote::create($data);
+                }
             }
             return redirect()->back()->with('success', 'Informations insérées avec succès!');
         }

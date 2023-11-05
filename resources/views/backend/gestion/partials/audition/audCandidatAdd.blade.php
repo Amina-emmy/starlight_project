@@ -1,11 +1,12 @@
-@if (count($aud_candidats) < 3)
+@if (count($aud_candidats) < 64)
     {{-- Limiter a 64 candidats --}}
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Ajouter_Audition_Candidat">
-        Add Candidats
+    <button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal"
+        data-bs-target="#Ajouter_Audition_Candidat">
+        <i class="fa-solid fa-user-plus me-2" style="color: #ffffff;"></i>Add Candidat
     </button>
- {{-- AJOUT AUDITION CANDIDAT --}}
+    {{-- AJOUT AUDITION CANDIDAT --}}
     <!-- Modal -->
     <form action="{{ route('store.audCandidat') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -15,8 +16,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title text-black" id="exampleModalLabel">Audition Candidats </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body ajout w-100 d-flex justify-content-evenly align-content-between">
                         <div class="">
@@ -61,16 +61,14 @@
 
                             <div class="">
                                 <label for="ville_provenance" name="ville_provenance">Ville :</label>
-                                <input type="text" name="ville_provenance" id=""
-                                    class="form-control w-100">
+                                <input type="text" name="ville_provenance" id="" class="form-control w-100">
                             </div>
                         </div>
 
                         <div class="">
                             <div class="">
                                 <label for="date_naissance" name="date_naissance">Date Naissance :</label>
-                                <input type="date" name="date_naissance" id=""
-                                    class="form-control w-100">
+                                <input type="date" name="date_naissance" id="" class="form-control w-100">
                             </div>
 
 
@@ -109,13 +107,11 @@
         </div>
     </form>
     {{-- Fin modal --}}
-
-    @else
+@else
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#supp">
-        Add Candidats
+    <button type="button" class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#supp">
+        <i class="fa-solid fa-user-plus me-2" style="color: #ffffff;"></i>Add Candidat
     </button>
-
 
     <!-- Modal -->
     <div class="modal fade " id="supp" tabindex="-1" aria-labelledby="suppLabel" aria-hidden="true">
@@ -124,14 +120,13 @@
                 <div class="modal-body h-100">
                     <div class="d-flex flex-column align-items-center py-3">
                         <div>
-                            <img src="/storage/img/iconSupp.webp" width="90" alt="warning_icon">
+                            <img src="/storage/logo/iconSupp.webp" width="90" alt="warning_icon">
                         </div>
                         <div class="mt-3">
-                            <h5 class="">Vous etes dépassez 64 candidats</h5>
+                            <h4 class="">Vous etes dépassez 64 candidats</h4>
                         </div>
                         <div class="mt-4">
-                            <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

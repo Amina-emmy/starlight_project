@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean("vote_jury4");
             $table->boolean("vote_jury5");
             $table->integer("jury_points");
-            $table->foreignId("aud_candidat_id")->constrained();
+            $table->foreignId("aud_candidat_id")->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
