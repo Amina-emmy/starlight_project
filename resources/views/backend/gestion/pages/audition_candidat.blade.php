@@ -43,7 +43,7 @@
 
         <table class="table rounded-3 overflow-hidden">
             <thead>
-                <tr valign="middle" class="">
+                <tr valign="middle" class="text-center">
                     <th scope="col" class="text-center">#</th>
                     <th scope="col">vote_jury1</th>
                     <th scope="col">vote_jury2</th>
@@ -57,7 +57,7 @@
             </thead>
             <tbody class="table-group-divider">
                 @foreach ($vote_auds as $vote_aud)
-                    <tr valign="middle">
+                    <tr valign="middle" class="text-center">
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $vote_aud->vote_jury1 }}</td>
                         <td>{{ $vote_aud->vote_jury2 }}</td>
