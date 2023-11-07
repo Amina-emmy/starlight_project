@@ -41,6 +41,8 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin/users',[AdminController::class,'indexUsers'])->name('admin.users'); 
     Route::get('/admin/episodes',[EpisodeController::class,'indexEp'])->name('admin.episodes');
     Route::get('/admin/audition',[AudCandidatController::class,'indexAud'])->name('admin.audGestion');
+    // affichage
+    Route::get('/admin/audition/affichage', [AdminController::class, 'affichageAud'])->name('admin.audAffichage');
 
     //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');

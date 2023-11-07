@@ -51,7 +51,7 @@
             </li>
 
             <ol class="test">
-                {{-- <a href={{route('audition')}}> --}}
+                <a href={{route('admin.audAffichage')}}>
                 <i class="fa-solid fa-street-view"></i>
                 <span>Auditions</span>
                 </a>

@@ -15,6 +15,26 @@ class AdminController extends Controller
     {
         return view("backend.affichage.pages.dashboardAdmin");
     }
+    //todo => ALL AFFICHAGE VIEWS
+    public function affichageAud(Request $request)
+    {
+        $candidats = AudCandidat::orderBy('id', 'asc')->get();
+        $votesParCandidat = [];
+        $vote = false;
+
+        $currentCandidatIndex = $request->input('candidatIndex', 0);
+
+        if ($currentCandidatIndex < 0) {
+            $currentCandidatIndex = 0;
+        } elseif ($currentCandidatIndex >= count($candidats)) {
+            $currentCandidatIndex = count($candidats) - 1;
+        }
+
+        $currentCandidat = $candidats->get($currentCandidatIndex);
+
+        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote'));
+    }
+    //todo =============================================================
 
     //* Gestion => USERS
     //^ View
@@ -54,7 +74,7 @@ class AdminController extends Controller
                 $jury->email = $request->email;
                 $jury->name = $request->name;
                 $jury->save();
-            }else{
+            } else {
                 $jury->name = $request->name;
                 $jury->save();
             }
@@ -77,24 +97,24 @@ class AdminController extends Controller
     //^ generer table de vote pour aud_candidats
     public function storeVoteAudCandi()
     {
-        $candidats=AudCandidat::all();
+        $candidats = AudCandidat::all();
         // insert all the id aud_candidats in the vote table
-            foreach ($candidats as $candidat) {
-                // check if candidat already has a line in the vote table
-                $existCandidat=AudJuryVote::where('aud_candidat_id',$candidat->id)->first();
-                if (!$existCandidat) {
-                    $data=[
-                        "vote_jury1"=>false,
-                        "vote_jury2"=>false,
-                        "vote_jury3"=>false,
-                        "vote_jury4"=>false,
-                        "vote_jury5"=>false,
-                        "jury_points"=>0,
-                        "aud_candidat_id"=>$candidat->id,
-                    ];
-                    AudJuryVote::create($data);
-                }
+        foreach ($candidats as $candidat) {
+            // check if candidat already has a line in the vote table
+            $existCandidat = AudJuryVote::where('aud_candidat_id', $candidat->id)->first();
+            if (!$existCandidat) {
+                $data = [
+                    "vote_jury1" => false,
+                    "vote_jury2" => false,
+                    "vote_jury3" => false,
+                    "vote_jury4" => false,
+                    "vote_jury5" => false,
+                    "jury_points" => 0,
+                    "aud_candidat_id" => $candidat->id,
+                ];
+                AudJuryVote::create($data);
             }
-            return redirect()->back()->with('success', 'Informations insérées avec succès!');
         }
+        return redirect()->back()->with('success', 'Informations insérées avec succès!');
+    }
 }

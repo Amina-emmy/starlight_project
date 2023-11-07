@@ -1,0 +1,303 @@
+.main-content {
+    .candidats {
+        // background-color: aqua;
+        width: 100%;
+        height: 17vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-top: 20px;
+        flex: 1;
+        gap: 10px;
+        box-shadow:
+            rgba(228, 225, 236, 0.135) 0px 30px 60px -12px inset, rgba(233, 232, 236, 0.112) 0px 18px 36px -18px inset;
+        border-radius: 5px;
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+
+            p {
+                height: 1vh;
+                color: rgb(29, 28, 28);
+                color: white;
+
+            }
+
+            .navigation {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 8vw;
+
+                a {
+                    text-decoration: none;
+
+                    i {
+                        color: white;
+                        font-size: 16px;
+                        // background-color: blue;
+                        border-radius: 50px;
+                        height: 40px;
+                        width: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 1px solid silver;
+                        margin-top: 6px;
+
+                        &:hover {
+                            // box-shadow: rgba(214, 209, 230, 0.569) 0px 30px 60px -12px inset, rgba(21, 16, 78, 0.193) 0px 18px 36px -18px inset;
+
+                            background-image: url('/storage/logo/bg_page.jpg');
+                            background-position: center;
+                            background-size: cover;
+                            animation: moveStars 20s linear infinite; // Réglez la durée et le comportement d'animation ici
+
+                            @keyframes moveStars {
+                                0% {
+                                    background-position: 0 0; // Démarrez l'animation avec la position d'origine
+                                }
+
+                                100% {
+                                    background-position: 100% 100%; // Déplacez l'image de fond pour créer une animation
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+            .img {
+                img {
+                    width: 80px;
+                    /* Largeur souhaitée */
+                    height: 80px;
+                    /* Hauteur souhaitée */
+                    border-radius: 50px;
+                }
+            }
+        }
+    }
+
+    .jurys {
+        position: relative;
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .jury {
+            background-color: rgba(73, 73, 136, 0.155);
+            text-align: center;
+
+            img {
+                width: 200px;
+                height: 150px;
+            }
+
+            h4 {
+                font-size: 20px;
+                color: white;
+            }
+
+            .vote {
+
+                // padding-bottom: 10px;
+                button {
+                    // border: 0.1px solid silver;
+                    border: none;
+                    color: white;
+                    width: 200px;
+                    height: 5vh;
+                    background: rgba(173, 22, 22, 0.5);
+                    border-radius: 3px;
+
+
+                }
+            }
+        }
+    }
+}
+
+// & Sidebar pour tout ce qui est plus 1440px
+@media only screen and (min-width: 1436px) and (max-width:1999px) {
+    .main-content {
+
+        .candidats {
+
+            // background-color: aqua;
+            width: 100%;
+            height: 10vh;
+            margin-top: 30px;
+            height: 190px;
+
+            .info {
+                gap: 20px;
+                width: 100%;
+
+                p {
+                    height: 1vh;
+                    color: white;
+                }
+
+                .navigation {
+                    width: 8vw;
+
+                    a {
+                        text-decoration: none;
+
+                        i {
+                            color: white;
+                            font-size: 19px;
+                            height: 50px;
+                            width: 50px;
+                            margin-top: 6px;
+
+                        }
+                    }
+                }
+
+                .img {
+                    width: 120px;
+                    /* Largeur souhaitée */
+                    height: 120px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        /* Hauteur souhaitée */
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+
+        .jurys {
+            position: relative;
+            margin-top: 35px;
+
+            .jury {
+
+                img {
+                    width: 280px;
+                    height: 240px;
+                }
+
+                h4 {
+                    font-size: 30px;
+                }
+
+                .vote {
+
+                    // padding-bottom: 10px;
+                    button {
+                        width: 280px;
+                        height: 5vh;
+                        background: transparent;
+                        border-radius: 3px;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+// * Sidebar pour 4K
+@media only screen and (min-width: 2000px) {
+    .main-content {
+        .candidats {
+            width: 100%;
+            margin-top: 30px;
+            height: 280px;
+
+            .info {
+                gap: 20px;
+                width: 100%;
+
+                p {
+                    height: 1vh;
+                    color: white;
+                    font-size: 45px
+                }
+
+                .navigation {
+                    width: 8vw;
+
+                    a {
+                        text-decoration: none;
+
+                        i {
+                            color: white;
+                            font-size: 35px;
+                            height: 75px;
+                            width: 75px;
+                            margin-top: 6px;
+
+                        }
+                    }
+                }
+
+                .img {
+                    width: 160px;
+                    height: 160px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        /* Hauteur souhaitée */
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+
+        .jurys {
+            position: relative;
+            margin-top: 45px;
+
+            .jury {
+
+                img {
+                    width: 420px;
+                    height: 350px;
+                }
+
+                h4 {
+                    font-size: 45px;
+                }
+
+                .vote {
+
+                    // padding-bottom: 10px;
+                    button {
+                        width: 420px;
+                        height: 5vh;
+                        background: transparent;
+                        border-radius: 3px;
+
+                        &:hover {
+                            background-image: url('/storage/logo/bg_page.jpg');
+                            background-position: center;
+                            background-size: cover;
+                            animation: moveStars 5s linear infinite; // Réglez la durée et le comportement d'animation ici
+
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+}
