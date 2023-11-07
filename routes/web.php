@@ -39,6 +39,8 @@ Route::middleware('auth', 'role:admin')->group(function () {
     //affichage
     Route::get('/admin/home',[AdminController::class,'index'])->name('admin.dashboardAdmin'); 
     Route::get('/admin/audition/affichage', [AdminController::class, 'affichageAud'])->name('admin.audAffichage');
+    Route::get('/admin/faf/affichage', [AdminController::class, 'affichageFaF'])->name('admin.FafAffichage');
+
     //gestion
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/admin/users',[AdminController::class,'indexUsers'])->name('admin.users'); 

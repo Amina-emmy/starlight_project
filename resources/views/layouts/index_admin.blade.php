@@ -57,7 +57,7 @@
                 </a>
             </ol>
             <ol class="test">
-                {{-- <a href="{{route('FaceAface')}}"> --}}
+                <a href="{{route('admin.FafAffichage')}}">
                 <i class="fa-solid fa-user-group"></i>
                 <span>FAF</span>
                 </a>

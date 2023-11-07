@@ -38,6 +38,14 @@ class AdminController extends Controller
 
         return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote','candidats','episodes','jurys'));
     }
+    public function affichageFaF()
+    {
+        //change Audcandidat to the model of the faf_candidat ( pas encore creer)
+        $candidats=AudCandidat::all();
+        $jurys=User::role('jury')->get();
+
+        return view('backend.affichage.pages.faf',compact("candidats","jurys"));
+    }
     //todo =============================================================
 
     //* Gestion => USERS
