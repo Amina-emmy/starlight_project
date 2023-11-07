@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AudCandidat;
 use App\Models\AudJuryVote;
+use App\Models\Episode;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -18,6 +19,9 @@ class AdminController extends Controller
     //todo => ALL AFFICHAGE VIEWS
     public function affichageAud(Request $request)
     {
+        $episodes=Episode::all();
+        $jurys=User::role('jury')->get();
+
         $candidats = AudCandidat::orderBy('id', 'asc')->get();
         $votesParCandidat = [];
         $vote = false;
@@ -32,7 +36,7 @@ class AdminController extends Controller
 
         $currentCandidat = $candidats->get($currentCandidatIndex);
 
-        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote'));
+        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote','candidats','episodes','jurys'));
     }
     //todo =============================================================
 

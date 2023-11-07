@@ -45,45 +45,61 @@
                 </div>
             </div>
         </div>
+        {{-- MESSAGE D' ALERTS --}}
+        <div class="mt-2">
+            @include('layouts.flash')
+        </div>
+        {{-- END MESSAGE D' ALERTS --}}
+
         {{-- PARTIE CANDIDAT --}}
         <div class="candidats_jury">
             <div class="candidat_aud_jury">
 
-                <div class="img">
-                    <img src="{{ asset('/storage/images_cand/' . $currentCandidat->photo) }}" alt=""
-                        srcset="">
-                </div>
-                <p>N badge : {{ $currentCandidat->badge }}</p>
-                <p>Name : {{ $currentCandidat->nom }}</p>
-                <p>" {{ $currentCandidat->chanson }} "</p>
+                @if ($currentCandidat)
+                    <div class="img">
+                        <img src="{{ asset('/storage/images_cand/' . $currentCandidat->photo) }}" alt=""
+                            srcset="">
+                    </div>
+                    <p>N badge : {{ $currentCandidat->badge }}</p>
+                    <p>Name : {{ $currentCandidat->nom }}</p>
+                    <p>" {{ $currentCandidat->chanson }} "</p>
 
-                @if (isset($votesParCandidat[$currentCandidat->id]))
-                    <p>Nombre de votes : {{ $votesParCandidat[$currentCandidat->id] }}</p>
+                    {{-- i guess i need to make an foreach sur audvotejury and afficher jury_points id if aud_candidat_id == currentcand id --}}
+                    @if (isset($votesParCandidat[$currentCandidat->id]))
+                        <p>Nombre de votes : {{ $votesParCandidat[$currentCandidat->id] }}</p>
+                    @else
+                        <p>Nombre de votes : 0</p>
+                    @endif
+
+                    <div class="navigations mt-2">
+                        <div class="navigation">
+                            <a href="{{ route('jury.index', ['candidatIndex' => $currentCandidatIndex - 1]) }}">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+                        </div>
+                        {{-- i need to add the form here for the vote function and send the current candidat id --}}
+                        <div class="btn_vote">
+                            <form action="{{ route('jury.voterAud', [auth()->user()->id, $currentCandidat->id]) }}"
+                                method="POST">
+                                @csrf
+                                @method('PUT')
+                                @if (session('success'))
+                                    <button disabled class="btn btn-lg py-0 px-5 text-white border-0">Vote</button>
+                                @else
+                                    <button type="submit" class="btn btn-lg py-0 px-5 text-white">Vote</button>
+                                @endif
+                            </form>
+                        </div>
+
+                        <div class="navigation">
+                            <a href="{{ route('jury.index', ['candidatIndex' => $currentCandidatIndex + 1]) }}">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 @else
-                    <p>Nombre de votes : 0</p>
+                    <p class="fs-5">Aucun candidat trouvé.</p>
                 @endif
-
-                <div class="navigations mt-2">
-                    <div class="navigation">
-                        <a href="{{ route('jury.index', ['candidatIndex' => $currentCandidatIndex - 1]) }}">
-                            <i class="fa-solid fa-arrow-left"></i>
-                        </a>
-                    </div>
-                    {{-- i need to add the form here for the vote function and send the current candidat id --}}
-                    <div class="btn_vote">
-                        <form action="{{route("jury.voterAud",$currentCandidat->id)}}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-lg py-0 px-5 text-white">Vote</button>
-                        </form>
-                    </div>
-
-                    <div class="navigation">
-                        <a href="{{ route('jury.index', ['candidatIndex' => $currentCandidatIndex + 1]) }}">
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

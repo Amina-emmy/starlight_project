@@ -34,9 +34,11 @@
             <form action="{{ route('store.voteAud') }}" method="POST">
                 @csrf
                 @if (count($vote_auds) < 64)
-                    <button type="submit" class=" btn btn-success text-white">lancer table de votes </button>
+                    <button type="submit" class=" btn btn-success text-white">
+                        <i class="fa-solid fa-rotate-right me-2" style="color: #ffffff;"></i>lancer table de votes </button>
                 @else
-                    <button type="submit" class=" btn btn-success text-white" disabled>lancer table de votes </button>
+                    <button type="submit" class=" btn btn-success text-white" disabled>
+                        <i class="fa-solid fa-rotate-right me-2" style="color: #ffffff;"></i>lancer table de votes </button>
                 @endif
             </form>
         </div>

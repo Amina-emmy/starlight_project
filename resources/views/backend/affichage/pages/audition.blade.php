@@ -34,8 +34,9 @@
     <div class="test_card">
         <div class="div1">
             <div class="nombre">
+                {{-- THAT SHOULD BE MODIFIED TO COLLECT ONLY LES CANDIDATS QU'ONT SAME PRIME --}}
                 <h4>
-                    8/count(Pos)
+                    {{ $currentCandidat->episode->prime }}/{{ count($episodes) }}
                 </h4>
 
                 <p>Positions</p>
@@ -48,7 +49,7 @@
         <div class="div2">
             <div class="nombre">
                 <h4>
-                    10/count(Candi)
+                    {{ $currentCandidat->id }}/{{ count($candidats) }}
                 </h4>
                 <p>Candidats</p>
             </div>
@@ -66,15 +67,13 @@
             </div>
             <div class="icone">
                 <i class="fa-solid fa-users"></i>
-
             </div>
         </div>
-
+        {{-- VOTES COUNT --}}
         <div class="div4">
             <div class="nombre">
                 <h4>
                     3/count(votes)
-
                 </h4>
                 <p>Votes</p>
             </div>
@@ -83,104 +82,56 @@
             </div>
         </div>
 
-
-
     </div>
 
 
     {{-- LES CANDIDATS --}}
     <div class="candidats">
 
-{{-- LES INFOS DE CANDIDATS --}}
+        {{-- LES INFOS DE CANDIDATS --}}
         <div class="info">
             @if ($currentCandidat)
-            <div class="navigation">
-
-                <a href="{{ route('admin.audAffichage', ['candidatIndex' => $currentCandidatIndex - 1]) }}">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </div>
-
-
-            <div class="img">
-                <img src="{{ asset('/storage/images_cand/'.$currentCandidat->photo) }}" alt="" srcset="">
-            </div>
-            <p>N badge : {{ $currentCandidat->badge }}</p>
-            <p>Name : {{ $currentCandidat->nom }}</p>
-            <p>{{ $currentCandidat->chanson }}</p>
-            {{-- <p id="score">Nombre de vote : {{ $candidats[0]->score }}</p> --}}
-
-
-            
-            <div class="navigation">
-                <a href="{{ route('admin.audAffichage', ['candidatIndex' => $currentCandidatIndex + 1]) }}">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
+                <div class="navigation">
+                    <a href="{{ route('admin.audAffichage', ['candidatIndex' => $currentCandidatIndex - 1]) }}">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="img">
+                    <img src="{{ asset('/storage/images_cand/' . $currentCandidat->photo) }}" alt=""
+                        srcset="">
+                </div>
+                <p>N badge : {{ $currentCandidat->badge }}</p>
+                <p>Name : {{ $currentCandidat->nom }}</p>
+                <p>"{{ $currentCandidat->chanson }}"</p>
+                {{-- <p id="score">Nombre de vote : {{ $candidats[0]->score }}</p> --}}
+                <div class="navigation">
+                    <a href="{{ route('admin.audAffichage', ['candidatIndex' => $currentCandidatIndex + 1]) }}">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             @else
-            <p>Aucun candidat trouvé.</p>
-        @endif
+                <p class="fs-5">Aucun candidat trouvé.</p>
+            @endif
         </div>
-
-   
     </div>
 
     {{-- Les jurys --}}
-
     <div class="jurys">
-        <div class="jury">
-            <img src="{{ asset('storage/img/amin.jpeg') }}" alt="" srcset="">
-            <h4>Aminux</h4>
-            <div class="vote">
-                <button>
-                    Vote 0
-                </button>
+        @foreach ($jurys as $jury)
+            <div class="jury">
+                <img src="{{ asset('storage/images_users/'.$jury->image) }}" alt="" srcset="">
+                <h4>{{$jury->name}}</h4>
+                <div class="vote">
+                    <button>
+                        Vote 0
+                        {{-- should be changed to 1 to jury that voted at the currentCandidat --}}
+                    </button>
+                </div>
             </div>
-        </div>
-
-        <div class="jury">
-            <img src="{{ asset('storage/img/asma.jpg') }}" alt="" srcset="">
-            <h4>Asmaa Lmnawar</h4>
-            <div class="vote">
-                <button>
-                    Vote 0
-                </button>
-            </div>
-        </div>
-
-
-        <div class="jury">
-            <img src="{{ asset('storage/img/dozi.jpg') }}" alt="" srcset="">
-            <h4>Douzi</h4>
-            <div class="vote">
-                <button>
-                    Vote 0
-                </button>
-            </div>
-        </div>
-
-
-        <div class="jury">
-            <img src="{{ asset('storage/img/nouaman.jpg') }}" alt="" srcset="">
-            <h4>Nouamane Lahlou</h4>
-            <div class="vote">
-                <button>
-                    Vote 0
-                </button>
-            </div>
-        </div>
-
-        <div class="jury">
-            <img src="{{ asset('storage/img/la.png') }}" alt="" srcset="">
-            <h4>Latifa Raafat</h4>
-            <div class="vote">
-                <button>
-                    Vote 0
-                </button>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
+
 {{-- <script>
     const candidats = @json($candidats); // Convertir les données des candidats en JSON
 

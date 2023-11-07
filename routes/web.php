@@ -36,13 +36,14 @@ Route::get('/dashboard', function () {
 //^ ADMIN
 Route::middleware('auth', 'role:admin')->group(function () {
     //~ VIEWS
+    //affichage
     Route::get('/admin/home',[AdminController::class,'index'])->name('admin.dashboardAdmin'); 
+    Route::get('/admin/audition/affichage', [AdminController::class, 'affichageAud'])->name('admin.audAffichage');
+    //gestion
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/admin/users',[AdminController::class,'indexUsers'])->name('admin.users'); 
     Route::get('/admin/episodes',[EpisodeController::class,'indexEp'])->name('admin.episodes');
     Route::get('/admin/audition',[AudCandidatController::class,'indexAud'])->name('admin.audGestion');
-    // affichage
-    Route::get('/admin/audition/affichage', [AdminController::class, 'affichageAud'])->name('admin.audAffichage');
 
     //~ FUNCTIONS
     Route::put('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -69,7 +70,7 @@ Route::middleware('auth', 'role:jury')->group(function () {
     Route::get('/jury/home',[JuryController::class,'index'])->name('jury.index');
     //~ FUNCTIONS
     //Audition
-    Route::post('/jury/audition/voter/{candidat}',[JuryController::class,'voterAud'])->name("jury.voterAud");
+    Route::put('/jury/audition/{jury}/voter/{candidat}',[JuryController::class,'voterAud'])->name("jury.voterAud");
 });
 
 require __DIR__ . '/auth.php';
