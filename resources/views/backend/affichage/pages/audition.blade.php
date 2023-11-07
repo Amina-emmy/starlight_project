@@ -73,7 +73,7 @@
         <div class="div4">
             <div class="nombre">
                 <h4>
-                    {{ $votesParCandidat[$currentCandidat->id] }}/5
+                    {{$votesParCandidat[$currentCandidat->id]}}/5
                 </h4>
                 <p>Votes</p>
             </div>
