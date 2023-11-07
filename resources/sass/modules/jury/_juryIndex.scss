@@ -1,0 +1,460 @@
+.juri_vote_aud_candidat {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/storage/logo/bg_page.jpg');
+    background-position: left;
+    background-size: cover;
+    animation: moveStars 200s linear infinite; // Réglez la durée et le comportement d'animation ici
+
+    @keyframes moveStars {
+        0% {
+            background-position: 0 0; // Démarrez l'animation avec la position d'origine
+        }
+
+        100% {
+            background-position: 100% 100%; // Déplacez l'image de fond pour créer une animation
+        }
+    }
+
+    .contenir_jury {
+        background-color: white;
+        padding-right: 20px;
+        padding-left: 20px;
+        flex: 1;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        gap: 20px;
+        color: rgb(42, 42, 112);
+        border-radius: 5px;
+        height: 8vh;
+
+        .prime {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            gap: 60px;
+
+            // background-color: aqua;
+            li {
+                height: 100%;
+                margin-top: 20px;
+            }
+
+            a {
+                text-decoration: none;
+                color: rgb(18, 18, 89);
+                list-style: square inside;
+                /* Changer le type de puce et la position */
+
+            }
+        }
+
+        .user-info {
+            width: 10vw;
+            height: 100%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+
+            .img {
+                width: 45px;
+                height: 45px;
+                border-radius: 50px;
+                // border: 1px solid red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 50px;
+
+                }
+            }
+
+            p {
+                position: relative;
+                top: 10px;
+            }
+        }
+    }
+
+    .candidats_jury {
+        width: 100vw;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .candidat_aud_jury {
+            width: 350px;
+            height: 350px;
+            margin-top: 340px;
+            box-shadow:
+                rgba(228, 225, 236, 0.135) 0px 30px 60px -12px inset, rgba(233, 232, 236, 0.112) 0px 18px 36px -18px inset;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .img {
+                width: 130px;
+                height: 130px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%;
+                }
+            }
+
+            p {
+                color: white;
+            }
+
+            .navigations {
+                display: flex;
+                width: 90%;
+                justify-content: space-between;
+
+                .navigation {
+                    color: white;
+                    border-radius: 100%;
+                    border: 1px solid white;
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        font-size: 20px;
+                    }
+
+                    &:hover {
+                        background-image: url('/storage/logo/bg_page.jpg');
+                        background-position: center;
+                        background-size: cover;
+                        animation: moveStars 20s linear infinite; // Réglez la durée et le comportement d'animation ici
+
+                        @keyframes moveStars {
+                            0% {
+                                background-position: 0 0; // Démarrez l'animation avec la position d'origine
+                            }
+
+                            100% {
+                                background-position: 100% 100%; // Déplacez l'image de fond pour créer une animation
+                            }
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: white;
+                            font-size: 20px;
+                        }
+                    }
+                }
+
+                .btn_vote {
+                    // background-color: rgba(210, 30, 30, 0.563);
+                    background-color: rgba(22, 173, 55, 0.397);
+                    border-radius: 5px;
+                    color: white;
+                }
+            }
+
+
+        }
+    }
+}
+
+// *Tablette Grande
+@media only screen and (min-width:760px) and (max-width:1024px) {
+    .juri_vote_aud_candidat {
+        animation: moveStars 200s linear infinite; // Réglez la durée et le comportement d'animation ici
+
+        @keyframes moveStars {
+            0% {
+                background-position: 0 0; // Démarrez l'animation avec la position d'origine
+            }
+
+            100% {
+                background-position: 100% 100%; // Déplacez l'image de fond pour créer une animation
+            }
+        }
+
+        .contenir_jury {
+            height: 7.5vh;
+            font-size: 20px;
+
+            h4 {
+                font-size: 21px;
+            }
+
+            .prime {
+                width: 70%;
+                gap: 60px;
+
+                li {
+                    height: 100%;
+                    margin-top: 20px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: rgb(18, 18, 89);
+                    list-style: square inside;
+                }
+            }
+
+            .user-info {
+                width: 10vw;
+                height: 100%;
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                gap: 15px;
+                flex: 1;
+
+                .img {
+                    width: 43px;
+                    height: 43px;
+                    border-radius: 50%;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 50px;
+                    }
+                }
+
+                p {
+                    font-size: 19px;
+                    position: relative;
+                    top: 10px;
+                }
+
+                .dropdown{
+                    button{
+                        font-size: 17px;
+                    }
+                    .dropdown-menu{
+                        a{
+                            font-size: 17px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .candidats_jury {
+            width: 100vw;
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .candidat_aud_jury {
+                width: 410px;
+                height: 410px;
+                margin-top: 340px;
+                .img {
+                    width: 130px;
+                    height: 130px;
+                    margin-bottom: 10px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 100%;
+                    }
+                }
+
+                p {
+                    color: white;
+                    font-size: 18px;
+                }
+
+                .navigations {
+                    width: 90%;
+
+                    .navigation {
+                        width: 47px;
+                        height: 47px;
+
+                        a {
+                            font-size: 21px;
+                        }
+
+                        &:hover {
+                            a {
+                                font-size: 21px;
+                            }
+                        }
+                    }
+
+                    .btn_vote {
+                        background-color: rgba(173, 22, 22, 0.5);
+                        border-radius: 5px;
+                        color: white;
+                        width: 170px;
+                        height: 45px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        button {
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// * tablette petit 
+@media only screen and (max-width: 767px) {
+    .juri_vote_aud_candidat {
+        animation: moveStars 200s linear infinite; // Réglez la durée et le comportement d'animation ici
+
+        @keyframes moveStars {
+            0% {
+                background-position: 0 0; // Démarrez l'animation avec la position d'origine
+            }
+
+            100% {
+                background-position: 100% 100%; // Déplacez l'image de fond pour créer une animation
+            }
+        }
+
+        .contenir_jury {
+            height: 8vh;
+            font-size: 21px;
+
+            h4 {
+                font-size: 24px;
+            }
+
+            .prime {
+                width: 70%;
+                gap: 60px;
+
+                li {
+                    height: 100%;
+                    margin-top: 20px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: rgb(18, 18, 89);
+                    list-style: square inside;
+                }
+            }
+
+            .user-info {
+                width: 10vw;
+                height: 100%;
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                gap: 15px;
+                flex: 1;
+
+                .img {
+                    width: 46px;
+                    height: 46px;
+                    border-radius: 50%;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 50px;
+                    }
+                }
+
+                p {
+                    font-size: 20px;
+                    position: relative;
+                    top: 10px;
+                }
+            }
+        }
+
+        .candidats_jury {
+            width: 100vw;
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .candidat_aud_jury {
+                width: 450px;
+                height: 450px;
+                margin-top: 340px;
+
+                .img {
+                    width: 150px;
+                    height: 150px;
+                    margin-bottom: 10px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 100%;
+                    }
+                }
+
+                p {
+                    color: white;
+                    font-size: 20px;
+                }
+
+                .navigations {
+                    width: 90%;
+
+                    .navigation {
+                        width: 47px;
+                        height: 47px;
+
+                        a {
+                            font-size: 21px;
+                        }
+
+                        &:hover {
+                            a {
+                                font-size: 21px;
+                            }
+                        }
+                    }
+
+                    .btn_vote {
+                        background-color: rgba(173, 22, 22, 0.5);
+                        border-radius: 5px;
+                        color: white;
+                        width: 170px;
+                        height: 45px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        button {
+                            font-size: 21px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

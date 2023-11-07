@@ -65,6 +65,9 @@ Route::middleware('auth', 'role:admin')->group(function () {
 Route::middleware('auth', 'role:jury')->group(function () {
     //~ VIEWS
     Route::get('/jury/home',[JuryController::class,'index'])->name('jury.index');
+    //~ FUNCTIONS
+    //Audition
+    Route::post('/jury/audition/voter/{candidat}',[JuryController::class,'voterAud'])->name("jury.voterAud");
 });
 
 require __DIR__ . '/auth.php';

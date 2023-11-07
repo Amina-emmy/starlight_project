@@ -9,7 +9,7 @@
         <div class="user-info">
             <div class="img">
                 <a href="{{ route('profile.edit') }}">
-                    <img src={{ asset('storage/images_users/' . auth()->user()->image) }} alt="" srcset="">
+                    <img src={{ asset('storage/images_users/' . auth()->user()->image) }} alt="pfpuser" srcset="">
                 </a>
             </div>
             <a href="{{ route('profile.edit') }}" class="nav-link">
