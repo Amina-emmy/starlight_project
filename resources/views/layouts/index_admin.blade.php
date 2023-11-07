@@ -53,7 +53,7 @@
             <ol class="test">
                 <a href={{route('admin.audAffichage')}}>
                 <i class="fa-solid fa-street-view"></i>
-                <span>Auditions</span>
+                <span>Audition</span>
                 </a>
             </ol>
             <ol class="test">
@@ -63,7 +63,7 @@
                 </a>
             </ol>
             <ol class="test">
-                {{-- <a href="{{route('UltimeFaceAface')}}"> --}}
+                <a href="{{route('admin.UFafAffichage')}}">
                 <i class="fa-solid fa-shield"></i>
                 <span>Ultime FAF</span>
                 </a>

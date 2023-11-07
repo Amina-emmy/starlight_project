@@ -7,17 +7,8 @@
                 Quaternary
             </span> --}}
 
-            <h4>Face a Face</h4>
+            <h4>Ultime Face a Face</h4>
         </div>
-
-        {{-- prime --}}
-        <ul class="prime">
-            <li> <a href="">Prime5</a>
-            </li>
-            <li> <a href="">Prime6</a>
-            </li>
-
-        </ul>
 
         <div class="user-info">
             <div class="img">

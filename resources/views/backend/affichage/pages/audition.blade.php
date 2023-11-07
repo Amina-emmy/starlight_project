@@ -73,7 +73,7 @@
         <div class="div4">
             <div class="nombre">
                 <h4>
-                    3/count(votes)
+                    {{ $votesParCandidat[$currentCandidat->id] }}/5
                 </h4>
                 <p>Votes</p>
             </div>
@@ -103,7 +103,6 @@
                 <p>N badge : {{ $currentCandidat->badge }}</p>
                 <p>Name : {{ $currentCandidat->nom }}</p>
                 <p>"{{ $currentCandidat->chanson }}"</p>
-                {{-- <p id="score">Nombre de vote : {{ $candidats[0]->score }}</p> --}}
                 <div class="navigation">
                     <a href="{{ route('admin.audAffichage', ['candidatIndex' => $currentCandidatIndex + 1]) }}">
                         <i class="fa-solid fa-arrow-right"></i>
@@ -119,13 +118,54 @@
     <div class="jurys">
         @foreach ($jurys as $jury)
             <div class="jury">
-                <img src="{{ asset('storage/images_users/'.$jury->image) }}" alt="" srcset="">
-                <h4>{{$jury->name}}</h4>
+                <img src="{{ asset('storage/images_users/' . $jury->image) }}" alt="" srcset="">
+                <h4>{{ $jury->name }}</h4>
                 <div class="vote">
-                    <button>
-                        Vote 0
-                        {{-- should be changed to 1 to jury that voted at the currentCandidat --}}
-                    </button>
+                    @foreach ($aud_votes as $aud_vote)
+                        @if ($aud_vote->aud_candidat_id == $currentCandidat->id)
+                            @switch($jury->id)
+                                @case(2)
+                                    @if ($aud_vote->vote_jury1 == false)
+                                        <button> Vote 0</button>
+                                    @else
+                                        <button class="btnvote1"> Vote 1</button>
+                                    @endif
+                                @break
+
+                                @case(3)
+                                    @if ($aud_vote->vote_jury2 == false)
+                                        <button> Vote 0</button>
+                                    @else
+                                        <button class="btnvote1"> Vote 1</button>
+                                    @endif
+                                @break
+
+                                @case(4)
+                                    @if ($aud_vote->vote_jury3 == false)
+                                        <button> Vote 0</button>
+                                    @else
+                                        <button class="btnvote1"> Vote 1</button>
+                                    @endif
+                                @break
+
+                                @case(5)
+                                    @if ($aud_vote->vote_jury4 == false)
+                                        <button> Vote 0</button>
+                                    @else
+                                        <button class="btnvote1"> Vote 1</button>
+                                    @endif
+                                @break
+
+                                @case(6)
+                                    @if ($aud_vote->vote_jury5 == false)
+                                        <button> Vote 0</button>
+                                    @else
+                                        <button class="btnvote1"> Vote 1</button>
+                                    @endif
+                                @break
+                            @endswitch
+                        @endif
+                    @endforeach
                 </div>
             </div>
         @endforeach

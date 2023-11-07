@@ -16,15 +16,28 @@ class AdminController extends Controller
     {
         return view("backend.affichage.pages.dashboardAdmin");
     }
-    //todo => ALL AFFICHAGE VIEWS
+    //todo => ALL AFFICHAGE VIEWS ( GAME )
     public function affichageAud(Request $request)
     {
         $episodes=Episode::all();
         $jurys=User::role('jury')->get();
+        $aud_votes=AudJuryVote::all();
 
         $candidats = AudCandidat::orderBy('id', 'asc')->get();
         $votesParCandidat = [];
         $vote = false;
+        foreach ($candidats as $candidat) {
+            $nbrVotes = AudJuryVote::where('aud_candidat_id', $candidat->id)
+                ->select('vote_jury1', 'vote_jury2', 'vote_jury3', 'vote_jury4', 'vote_jury5')
+                ->get();
+
+            // Calcul du total des votes pour chaque candidat
+            $totalVotes = $nbrVotes->sum(function ($vote) {
+                return $vote->vote_jury1 + $vote->vote_jury2 + $vote->vote_jury3 + $vote->vote_jury4 + $vote->vote_jury5;
+            });
+
+            $votesParCandidat[$candidat->id] = $totalVotes;
+        }
 
         $currentCandidatIndex = $request->input('candidatIndex', 0);
 
@@ -33,11 +46,11 @@ class AdminController extends Controller
         } elseif ($currentCandidatIndex >= count($candidats)) {
             $currentCandidatIndex = count($candidats) - 1;
         }
-
         $currentCandidat = $candidats->get($currentCandidatIndex);
 
-        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote','candidats','episodes','jurys'));
+        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote','candidats','episodes','jurys','aud_votes'));
     }
+
     public function affichageFaF()
     {
         //change Audcandidat to the model of the faf_candidat ( pas encore creer)
@@ -45,6 +58,14 @@ class AdminController extends Controller
         $jurys=User::role('jury')->get();
 
         return view('backend.affichage.pages.faf',compact("candidats","jurys"));
+    }
+    public function affichageUFaF()
+    {
+        //change Audcandidat to the model of the ufaf_candidat ( pas encore creer)
+        $candidats=AudCandidat::all();
+        $jurys=User::role('jury')->get();
+
+        return view('backend.affichage.pages.ufaf',compact("candidats","jurys"));
     }
     //todo =============================================================
 
