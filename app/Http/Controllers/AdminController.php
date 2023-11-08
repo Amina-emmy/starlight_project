@@ -24,6 +24,7 @@ class AdminController extends Controller
         $jurys = User::role('jury')->get();
         $aud_votes = AudJuryVote::all();
 
+        $episode=1;
         $candidats = AudCandidat::orderBy('id', 'asc')->get();
         $votesParCandidat = [];
         $vote = false;
@@ -49,7 +50,7 @@ class AdminController extends Controller
         }
         $currentCandidat = $candidats->get($currentCandidatIndex);
 
-        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote', 'candidats', 'episodes', 'jurys', 'aud_votes'));
+        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote', 'candidats', 'episodes', 'jurys', 'aud_votes','episode'));
     }
     //^ Face a Face
     public function affichageFaF()

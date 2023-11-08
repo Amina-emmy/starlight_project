@@ -43,6 +43,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin/ufaf/affichage', [AdminController::class, 'affichageUFaF'])->name('admin.UFafAffichage');
     Route::get('/admin/demiFinale/affichage', [AdminController::class, 'affichageDemiFinale'])->name('admin.DFAffichage');
     Route::get('/admin/finale/affichage', [AdminController::class, 'affichageFinale'])->name('admin.FAffichage');
+    Route::get('/admin/audition/prime/{episode}', [AudCandidatController::class, 'showCandidatsByEpisode'])->name('candidats.by.episode');
     //gestion
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::get('/admin/users',[AdminController::class,'indexUsers'])->name('admin.users'); 
