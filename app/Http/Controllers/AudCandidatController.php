@@ -37,21 +37,27 @@ class AudCandidatController extends Controller
         } else if ($request->gender === 'Homme') {
             $image = 'homme_avatar.png'; // Nom du fichier pour l'avatar de l'homme
         }
-
-        $data = [
-            "badge" => $request->badge,
-            "nom" => $request->nom,
-            "prenom" => $request->prenom,
-            "gender" => $request->gender,
-            "chanson" => $request->chanson,
-            "photo" => $image,
-            "ville_provenance" => $request->ville_provenance,
-            "date_naissance" => $request->date_naissance,
-            "episode_id" => $request->episode_id,
-        ];
-
-        AudCandidat::create($data);
-        return redirect()->back()->with("success","Candidat a été ajouté avec succès");
+        // check if candidat already existed (par badge cause it's unique)
+        $existBadge=AudCandidat::where("badge",$request->badge)->first();
+        if ($existBadge) {
+            return redirect()->back()->with("error","Candidat existait déjà");
+        } else {
+            
+            $data = [
+                "badge" => $request->badge,
+                "nom" => $request->nom,
+                "prenom" => $request->prenom,
+                "gender" => $request->gender,
+                "chanson" => $request->chanson,
+                "photo" => $image,
+                "ville_provenance" => $request->ville_provenance,
+                "date_naissance" => $request->date_naissance,
+                "episode_id" => $request->episode_id,
+            ];
+    
+            AudCandidat::create($data);
+            return redirect()->back()->with("success","Candidat a été ajouté avec succès");
+        }
     }
     //* Destroy aud_candidat
     public function destroyAudCandi(AudCandidat $audCandidat)

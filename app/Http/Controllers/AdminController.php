@@ -166,6 +166,6 @@ class AdminController extends Controller
                 AudJuryVote::create($data);
             }
         }
-        return redirect()->back()->with('success', 'Informations insérées avec succès!');
+        return redirect()->back()->with('success', 'Informations pour Audition votes insérées avec succès!');
     }
 }
