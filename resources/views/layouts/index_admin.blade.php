@@ -69,13 +69,13 @@
                 </a>
             </ol>
             <ol class="test">
-                {{-- <a href="{{route('DemiFinale')}}"> --}}
+                <a href="{{route('admin.DFAffichage')}}">
                 <i class="fa-solid fa-shield-halved"></i>
                 <span>Demi finale</span>
                 </a>
             </ol>
             <ol class="test">
-                {{-- <a href="{{route('Finale')}}"> --}}
+                <a href="{{route('admin.FAffichage')}}">
                 <i class="fa-solid fa-trophy"></i>
                 <span>Finale</span>
                 </a>

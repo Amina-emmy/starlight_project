@@ -17,11 +17,12 @@ class AdminController extends Controller
         return view("backend.affichage.pages.dashboardAdmin");
     }
     //todo => ALL AFFICHAGE VIEWS ( GAME )
+    //^ audition
     public function affichageAud(Request $request)
     {
-        $episodes=Episode::all();
-        $jurys=User::role('jury')->get();
-        $aud_votes=AudJuryVote::all();
+        $episodes = Episode::all();
+        $jurys = User::role('jury')->get();
+        $aud_votes = AudJuryVote::all();
 
         $candidats = AudCandidat::orderBy('id', 'asc')->get();
         $votesParCandidat = [];
@@ -48,24 +49,41 @@ class AdminController extends Controller
         }
         $currentCandidat = $candidats->get($currentCandidatIndex);
 
-        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote','candidats','episodes','jurys','aud_votes'));
+        return view('backend.affichage.pages.audition', compact('currentCandidat', 'currentCandidatIndex', 'votesParCandidat', 'vote', 'candidats', 'episodes', 'jurys', 'aud_votes'));
     }
-
+    //^ Face a Face
     public function affichageFaF()
     {
         //change Audcandidat to the model of the faf_candidat ( pas encore creer)
-        $candidats=AudCandidat::all();
-        $jurys=User::role('jury')->get();
+        $candidats = AudCandidat::all();
+        $jurys = User::role('jury')->get();
 
-        return view('backend.affichage.pages.faf',compact("candidats","jurys"));
+        return view('backend.affichage.pages.faf', compact("candidats", "jurys"));
     }
+    //^ Ultime Face a Face
     public function affichageUFaF()
     {
         //change Audcandidat to the model of the ufaf_candidat ( pas encore creer)
-        $candidats=AudCandidat::all();
-        $jurys=User::role('jury')->get();
+        $candidats = AudCandidat::all();
+        $jurys = User::role('jury')->get();
 
-        return view('backend.affichage.pages.ufaf',compact("candidats","jurys"));
+        return view('backend.affichage.pages.ufaf', compact("candidats", "jurys"));
+    }
+    //^ Demi Finale
+    public function affichageDemiFinale()
+    {
+        //change Audcandidat to the model of the demiFinale_candidat ( pas encore creer)
+        $candidats = AudCandidat::all();
+        $jurys = User::role('jury')->get();
+        return view('backend.affichage.pages.demiFinale', compact("candidats", 'jurys'));
+    }
+    //^ Finale
+    public function affichageFinale()
+    {
+        //change Audcandidat to the model of the demiFinale_candidat ( pas encore creer)
+        $candidats = AudCandidat::all();
+        $jurys = User::role('jury')->get();
+        return view('backend.affichage.pages.finale', compact("candidats", 'jurys'));
     }
     //todo =============================================================
 

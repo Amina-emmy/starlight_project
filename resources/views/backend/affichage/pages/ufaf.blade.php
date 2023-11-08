@@ -9,7 +9,12 @@
 
             <h4>Ultime Face a Face</h4>
         </div>
-
+        {{-- prime --}}
+        <ul class="prime">
+            <li> <a href="">Prime7</a>
+            </li>
+            
+        </ul>
         <div class="user-info">
             <div class="img">
                 <a href="{{ route('profile.edit') }}">
