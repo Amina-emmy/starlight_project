@@ -51,13 +51,13 @@ class AudCandidatController extends Controller
         ];
 
         AudCandidat::create($data);
-        return redirect()->back();
+        return redirect()->back()->with("success","Candidat a été ajouté avec succès");
     }
     //* Destroy aud_candidat
     public function destroyAudCandi(AudCandidat $audCandidat)
     {
         $audCandidat->delete();
-        return redirect()->back();
+        return redirect()->back()->with("error","Candidat a été supprimé avec succès");
     }
     //* Update aud_candidat
     public function updateAudCandi(AudCandidat $audCandidat, Request $request)
@@ -82,6 +82,6 @@ class AudCandidatController extends Controller
         ];
 
         $audCandidat->update($data);
-        return redirect()->back();
+        return redirect()->back()->with("warning","Les informations du candidat ont été modifiées avec succès");
     }
 }

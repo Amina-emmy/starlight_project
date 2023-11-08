@@ -19,7 +19,8 @@
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{ $aud_candidat->badge }}</td>
                 <td>
-                    <img src="{{ asset('/storage/images_cand/' . $aud_candidat->photo) }}" alt="avatar_person" width="45">
+                    <img src="{{ asset('/storage/images_cand/' . $aud_candidat->photo) }}" alt="avatar_person"
+                        width="45">
                 </td>
                 <td>{{ $aud_candidat->nom }}</td>
                 <td>{{ $aud_candidat->prenom }}</td>
@@ -33,12 +34,7 @@
                 </td>
                 <td>
                     {{-- DELETE  --}}
-                    <form action="{{ route('destroy.audCandidat', $aud_candidat->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fa-solid fa-trash text-white"></i> </button>
-                    </form>
+                    @include("backend.gestion.partials.audition.suppAudCand")
                 </td>
         @endforeach
         </tr>

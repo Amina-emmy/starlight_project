@@ -22,12 +22,12 @@
                         <div class="">
                             <div class="">
                                 <label for="badge" name="badge">Badge :</label>
-                                <input type="text" name="badge" id="" class="form-control w-100">
+                                <input type="text" name="badge" id="" class="form-control w-100" required>
                             </div>
 
                             <div class="">
                                 <label for="chanson" name="chanson">Chanson :</label>
-                                <input type="text" name="chanson" id="" class="form-control w-100">
+                                <input type="text" name="chanson" id="" class="form-control w-100" required>
                             </div>
                         </div>
 
@@ -35,13 +35,13 @@
 
                             <div class="">
                                 <label for="prenom" name="prenom">Prenom :</label>
-                                <input type="text" name="prenom" id="" class="form-control w-100">
+                                <input type="text" name="prenom" id="" class="form-control w-100" required>
                             </div>
 
 
                             <div class="">
                                 <label for="gender" name="gender">Gender :</label>
-                                <select name="gender" id=""class="form-control w-100">
+                                <select name="gender" id=""class="form-control w-100" required>
 
                                     <option value="Femme">
                                         Femme
@@ -55,38 +55,25 @@
                         <div class="">
                             <div class="">
                                 <label for="nom" name="nom">Nom :</label>
-                                <input type="text" name="nom" id="" class="form-control w-100">
+                                <input type="text" name="nom" id="" class="form-control w-100" required>
                             </div>
 
 
                             <div class="">
                                 <label for="ville_provenance" name="ville_provenance">Ville :</label>
-                                <input type="text" name="ville_provenance" id="" class="form-control w-100">
+                                <input type="text" name="ville_provenance" id="" class="form-control w-100" required>
                             </div>
                         </div>
 
                         <div class="">
                             <div class="">
                                 <label for="date_naissance" name="date_naissance">Date Naissance :</label>
-                                <input type="date" name="date_naissance" id="" class="form-control w-100">
+                                <input type="date" name="date_naissance" id="" class="form-control w-100" required>
                             </div>
-
-
-                            {{-- <div class="">
-                            <label for="episode_id">Episode :</label>
-                            <select name="episode_id" id="" class="form-control w-100">
-                                @foreach ($aud_candidats->unique('episode_id') as $aud_candidat)
-                                <option value="{{ $aud_candidat->episode->id }}">
-                                    {{ $aud_candidat->episode->prime }}
-                                </option>
-                                    
-                                @endforeach
-                            </select>
-                        </div> --}}
 
                             <div class="">
                                 <label for="episode_id">Episode :</label>
-                                <select name="episode_id" id="" class="form-control w-100">
+                                <select name="episode_id" id="" class="form-control w-100" required>
                                     @foreach ($episodes as $episode)
                                         <option value=" {{ $episode->prime }} ">
                                             {{ $episode->prime }}
