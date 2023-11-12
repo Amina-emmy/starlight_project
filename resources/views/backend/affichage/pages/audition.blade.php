@@ -68,48 +68,52 @@
                 <div class="vote">
                     @if (count($aud_votes) > 0)
                         @foreach ($aud_votes as $aud_vote)
-                            @if ($aud_vote->aud_candidat_id == $currentCandidat->id && $currentCandidat->episode_id == $episode)
-                                @switch($jury->id)
-                                    @case(2)
-                                        @if ($aud_vote->vote_jury1 == false)
-                                            <button> Vote 0</button>
-                                        @else
-                                            <button class="btnvote1"> Vote 1</button>
-                                        @endif
-                                    @break
+                            @if ($currentCandidat)
+                                @if (
+                                    $aud_vote->aud_candidat_id == $currentCandidat->id &&
+                                        $aud_vote->aud_candidat->episode_id == $currentCandidat->episode_id)
+                                    @switch($jury->id)
+                                        @case(2)
+                                            @if ($aud_vote->vote_jury1 == false)
+                                                <button> Vote 0</button>
+                                            @else
+                                                <button class="btnvote1"> Vote 1</button>
+                                            @endif
+                                        @break
 
-                                    @case(3)
-                                        @if ($aud_vote->vote_jury2 == false)
-                                            <button> Vote 0</button>
-                                        @else
-                                            <button class="btnvote1"> Vote 1</button>
-                                        @endif
-                                    @break
+                                        @case(3)
+                                            @if ($aud_vote->vote_jury2 == false)
+                                                <button> Vote 0</button>
+                                            @else
+                                                <button class="btnvote1"> Vote 1</button>
+                                            @endif
+                                        @break
 
-                                    @case(4)
-                                        @if ($aud_vote->vote_jury3 == false)
-                                            <button> Vote 0</button>
-                                        @else
-                                            <button class="btnvote1"> Vote 1</button>
-                                        @endif
-                                    @break
+                                        @case(4)
+                                            @if ($aud_vote->vote_jury3 == false)
+                                                <button> Vote 0</button>
+                                            @else
+                                                <button class="btnvote1"> Vote 1</button>
+                                            @endif
+                                        @break
 
-                                    @case(5)
-                                        @if ($aud_vote->vote_jury4 == false)
-                                            <button> Vote 0</button>
-                                        @else
-                                            <button class="btnvote1"> Vote 1</button>
-                                        @endif
-                                    @break
+                                        @case(5)
+                                            @if ($aud_vote->vote_jury4 == false)
+                                                <button> Vote 0</button>
+                                            @else
+                                                <button class="btnvote1"> Vote 1</button>
+                                            @endif
+                                        @break
 
-                                    @case(6)
-                                        @if ($aud_vote->vote_jury5 == false)
-                                            <button> Vote 0</button>
-                                        @else
-                                            <button class="btnvote1"> Vote 1</button>
-                                        @endif
-                                    @break
-                                @endswitch
+                                        @case(6)
+                                            @if ($aud_vote->vote_jury5 == false)
+                                                <button> Vote 0</button>
+                                            @else
+                                                <button class="btnvote1"> Vote 1</button>
+                                            @endif
+                                        @break
+                                    @endswitch
+                                @endif
                             @endif
                         @endforeach
                     @else
