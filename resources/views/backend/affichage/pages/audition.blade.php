@@ -26,60 +26,6 @@
     </div>
 
 
-    {{-- LES CARTES --}}
-    <div class="test_card">
-        <div class="div1">
-            <div class="nombre">
-                {{-- THAT SHOULD BE MODIFIED TO COLLECT ONLY LES CANDIDATS QU'ONT SAME PRIME --}}
-                <h4>
-                    {{$episode}}/{{ count($episodes) }}
-                </h4>
-
-                <p>Positions</p>
-            </div>
-            <div class="icone">
-                <i class="fa-solid fa-award"></i>
-            </div>
-        </div>
-
-        <div class="div2">
-            <div class="nombre">
-                <h4>
-                    {{-- {{ $currentCandidat->id }}/{{ count($allcandidats) }} --}}
-                </h4>
-                <p>Candidats</p>
-            </div>
-            <div class="icone">
-                <i class="fa-solid fa-user"></i>
-            </div>
-        </div>
-
-        <div class="div3">
-            <div class="nombre">
-                <h4>
-                    5
-                </h4>
-                <p>Jurys</p>
-            </div>
-            <div class="icone">
-                <i class="fa-solid fa-users"></i>
-            </div>
-        </div>
-        {{-- VOTES COUNT --}}
-        <div class="div4">
-            <div class="nombre">
-                <h4>
-                    {{-- {{ $votesParCandidat[$currentCandidat->id] }}/5 --}}
-                </h4>
-                <p>Votes</p>
-            </div>
-            <div class="icone">
-                <i class="fa-solid fa-star"></i>
-            </div>
-        </div>
-
-    </div>
-
 
     {{-- LES CANDIDATS --}}
     <div class="candidats">
@@ -97,6 +43,7 @@
                     <img src="{{ asset('/storage/images_cand/' . $currentCandidat->photo) }}" alt=""
                         srcset="">
                 </div>
+                <p>{{ $currentCandidat->episode_id }}</p>
                 <p>N badge : {{ $currentCandidat->badge }}</p>
                 <p>Name : {{ $currentCandidat->nom }}</p>
                 <p>"{{ $currentCandidat->chanson }}"</p>
@@ -121,7 +68,7 @@
                 <div class="vote">
                     @if (count($aud_votes) > 0)
                         @foreach ($aud_votes as $aud_vote)
-                            @if ($aud_vote->aud_candidat_id == $currentCandidat->id)
+                            @if ($aud_vote->aud_candidat_id == $currentCandidat->id && $currentCandidat->episode_id == $episode)
                                 @switch($jury->id)
                                     @case(2)
                                         @if ($aud_vote->vote_jury1 == false)
