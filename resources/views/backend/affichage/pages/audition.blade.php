@@ -3,7 +3,7 @@
 <div class="main-content">
     <div class="contenir">
         <div class="header-title">
-            <h4>Audition</h4>
+            <h4>Audition: <span class="text-tablejury">prime {{ $episode }}</span> </h4>
         </div>
 
         {{-- prime --}}
@@ -24,7 +24,61 @@
             </a>
         </div>
     </div>
+    {{-- LES CARTES --}}
+    <div class="test_card">
+        @if ($currentCandidat)
+            <div class="div1">
+                <div class="nombre">
+                    {{-- THAT SHOULD BE MODIFIED TO COLLECT ONLY LES CANDIDATS QU'ONT SAME PRIME --}}
+                    <h4>
+                        {{ $currentCandidat->episode->prime }}/{{ count($episodes) }}
+                    </h4>
 
+                    <p>Positions</p>
+                </div>
+                <div class="icone">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+            </div>
+
+            <div class="div2">
+                <div class="nombre">
+                    <h4>
+                        {{ $currentCandidat->id }}/{{ count($candidats) }}
+                    </h4>
+                    <p>Candidats</p>
+                </div>
+                <div class="icone">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+
+            <div class="div3">
+                <div class="nombre">
+                    <h4>
+                        5
+                    </h4>
+                    <p>Jurys</p>
+                </div>
+                <div class="icone">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+            </div>
+            {{-- VOTES COUNT --}}
+            <div class="div4">
+                <div class="nombre">
+                    <h4>
+                        {{ $votesParCandidat[$currentCandidat->id] }}/5
+                    </h4>
+                    <p>Votes</p>
+                </div>
+                <div class="icone">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+        @endif
+
+    </div>
 
 
     {{-- LES CANDIDATS --}}
@@ -45,7 +99,7 @@
                 </div>
                 <p>{{ $currentCandidat->episode_id }}</p>
                 <p>N badge : {{ $currentCandidat->badge }}</p>
-                <p>Name : {{ $currentCandidat->nom }}</p>
+                <p>Name : {{ $currentCandidat->nom }} {{ $currentCandidat->prenom }}</p>
                 <p>"{{ $currentCandidat->chanson }}"</p>
                 <div class="navigation">
                     <a
