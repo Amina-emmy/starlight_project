@@ -97,7 +97,6 @@
                     <img src="{{ asset('/storage/images_cand/' . $currentCandidat->photo) }}" alt=""
                         srcset="">
                 </div>
-                <p>{{ $currentCandidat->episode_id }}</p>
                 <p>N badge : {{ $currentCandidat->badge }}</p>
                 <p>Name : {{ $currentCandidat->nom }} {{ $currentCandidat->prenom }}</p>
                 <p>"{{ $currentCandidat->chanson }}"</p>
